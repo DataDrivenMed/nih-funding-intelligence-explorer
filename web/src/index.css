@@ -11,8 +11,8 @@
 
   --text-primary:   #111827;
   --text-secondary: #374151;
-  --text-muted:     #6B7280;
-  --text-faint:     #9CA3AF;
+  --text-muted:     #374151;
+  --text-faint:     #6B7280;
 
   --accent:      #2563EB;
   --accent-bg:   #EFF6FF;
@@ -57,10 +57,10 @@ body {
 /* ── Typography ────────────────────────────────────────────────────────────── */
 .text-label {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: #4B5563;
 }
 
 /* ── Card ──────────────────────────────────────────────────────────────────── */
@@ -96,7 +96,7 @@ body {
 .recharts-tooltip-wrapper { pointer-events: none !important; }
 
 .recharts-cartesian-axis-tick text {
-  fill: var(--text-faint) !important;
+  fill: #4B5563 !important;
   font-size: 11px !important;
 }
 

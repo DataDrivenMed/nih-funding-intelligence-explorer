@@ -3,29 +3,62 @@ interface Props {
   interpretation: string;
   caution?: string;
   leadershipImplication?: string;
+  contextLabel?: string;
 }
 
-export default function InsightPanel({ insight, interpretation, caution, leadershipImplication }: Props) {
+const LABEL_STYLE: React.CSSProperties = {
+  fontFamily: '"DM Mono", monospace',
+  fontSize: '10px',
+  letterSpacing: '0.1em',
+  textTransform: 'uppercase',
+  fontWeight: 500,
+  marginBottom: '6px',
+  display: 'block',
+};
+
+import React from 'react';
+
+export default function InsightPanel({ insight, interpretation, caution, leadershipImplication, contextLabel }: Props) {
   return (
-    <div className="space-y-3 mt-6">
+    <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      {contextLabel && (
+        <p style={{
+          fontFamily: '"DM Mono", monospace',
+          fontSize: '10px',
+          letterSpacing: '0.06em',
+          color: 'var(--text-muted)',
+          marginBottom: '2px',
+          fontStyle: 'italic',
+        }}>
+          {contextLabel}
+        </p>
+      )}
+
+      {/* Data Insight */}
       <div className="insight-box">
-        <p className="font-semibold text-blue-800 mb-1 text-xs uppercase tracking-wide">Data Insight</p>
-        <p>{insight}</p>
+        <span style={{ ...LABEL_STYLE, color: '#7dd3fc' }}>Data Insight</span>
+        <p style={{ color: 'var(--text-primary)', lineHeight: 1.65, fontSize: '13px' }}>{insight}</p>
       </div>
+
+      {/* Plain Language Interpretation */}
       <div className="interpretation-box">
-        <p className="font-semibold text-amber-800 mb-1 text-xs uppercase tracking-wide">Plain Language Interpretation</p>
-        <p>{interpretation}</p>
+        <span style={{ ...LABEL_STYLE, color: '#fcd34d' }}>Plain Language Interpretation</span>
+        <p style={{ color: 'var(--text-primary)', lineHeight: 1.65, fontSize: '13px' }}>{interpretation}</p>
       </div>
+
+      {/* Leadership Implication */}
       {leadershipImplication && (
-        <div className="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-lg text-sm text-emerald-900">
-          <p className="font-semibold text-emerald-800 mb-1 text-xs uppercase tracking-wide">Leadership Implication</p>
-          <p>{leadershipImplication}</p>
+        <div className="leadership-box">
+          <span style={{ ...LABEL_STYLE, color: '#5eead4' }}>Leadership Implication</span>
+          <p style={{ color: 'var(--text-primary)', lineHeight: 1.65, fontSize: '13px' }}>{leadershipImplication}</p>
         </div>
       )}
+
+      {/* Caution */}
       {caution && (
         <div className="caution-box">
-          <p className="font-semibold text-orange-800 mb-1 text-xs uppercase tracking-wide">Caution</p>
-          <p>{caution}</p>
+          <span style={{ ...LABEL_STYLE, color: '#fbbf24' }}>Caution</span>
+          <p style={{ color: 'var(--text-secondary)', lineHeight: 1.65, fontSize: '13px' }}>{caution}</p>
         </div>
       )}
     </div>

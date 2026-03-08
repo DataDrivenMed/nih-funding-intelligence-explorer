@@ -69,13 +69,13 @@ export const GRID_PROPS = {
 } as const
 
 export const X_AXIS_PROPS = {
-  tick: { fontSize: 11, fill: '#9CA3AF' },
-  axisLine: { stroke: '#E5E7EB' },
+  tick: { fontSize: 11, fill: '#4B5563' },
+  axisLine: { stroke: '#D1D5DB' },
   tickLine: false,
 } as const
 
 export const Y_AXIS_PROPS = {
-  tick: { fontSize: 11, fill: '#9CA3AF' },
+  tick: { fontSize: 11, fill: '#4B5563' },
   axisLine: false,
   tickLine: false,
 } as const

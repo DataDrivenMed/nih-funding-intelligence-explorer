@@ -1,31 +1,344 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* ── Fonts ──────────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply bg-gray-50 text-gray-900 font-sans;
-  }
+/* ── Design tokens ──────────────────────────────────────────────────────── */
+:root {
+  --bg:          #0b0f18;
+  --surface:     #111827;
+  --surface2:    #1a2436;
+  --surface3:    #243044;
+  --border:      rgba(255,255,255,0.08);
+  --border-md:   rgba(255,255,255,0.12);
+  --border-hi:   rgba(255,255,255,0.20);
+
+  --accent:      #0ea5e9;
+  --accent-dim:  rgba(14,165,233,0.12);
+  --accent-glow: rgba(14,165,233,0.20);
+  --amber:       #f59e0b;
+  --amber-dim:   rgba(245,158,11,0.12);
+  --teal:        #0d9488;
+  --teal-dim:    rgba(13,148,136,0.12);
+  --green:       #10b981;
+  --green-dim:   rgba(16,185,129,0.12);
+  --red:         #ef4444;
+  --red-dim:     rgba(239,68,68,0.12);
+  --violet:      #8b5cf6;
+
+  --text-primary:   #f0f4f8;
+  --text-secondary: #94a3b8;
+  --text-muted:     #64748b;
 }
 
+/* ── Base ───────────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--surface3) var(--bg);
+  }
+  *::-webkit-scrollbar { width: 5px; height: 5px; }
+  *::-webkit-scrollbar-track { background: var(--bg); }
+  *::-webkit-scrollbar-thumb { background: var(--surface3); border-radius: 3px; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2 { font-family: 'DM Serif Display', Georgia, serif; }
+  h3, h4, h5, h6 { font-family: 'Inter', system-ui, sans-serif; font-weight: 600; }
+
+  /* Recharts text override for dark theme */
+  .recharts-text, .recharts-cartesian-axis-tick-value {
+    fill: var(--text-secondary) !important;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+  }
+  .recharts-legend-item-text {
+    color: var(--text-secondary) !important;
+    font-size: 13px;
+  }
+  .recharts-cartesian-grid-horizontal line,
+  .recharts-cartesian-grid-vertical line {
+    stroke: rgba(255,255,255,0.05) !important;
+  }
+  .recharts-tooltip-wrapper { z-index: 50; }
+  .recharts-label {
+    fill: var(--text-muted) !important;
+    font-size: 12px !important;
+  }
+
+  /* Form controls */
+  select, input[type="range"] {
+    background-color: var(--surface2);
+    color: var(--text-primary);
+    border-color: var(--border-md);
+  }
+  select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-dim);
+  }
+  option { background-color: var(--surface2); color: var(--text-primary); }
+
+  /* Table defaults */
+  table { border-collapse: separate; border-spacing: 0; width: 100%; }
+  thead tr { background: var(--surface3) !important; }
+  thead th {
+    background: var(--surface3) !important;
+    color: var(--text-secondary) !important;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border-md);
+  }
+  tbody tr { background: var(--surface) !important; transition: background 0.15s; }
+  tbody tr:nth-child(even) { background: var(--surface2) !important; }
+  tbody tr:hover { background: var(--surface3) !important; }
+  tbody td {
+    color: var(--text-primary) !important;
+    border-bottom: 1px solid var(--border);
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+  .divide-y > * + * { border-top-color: var(--border) !important; }
+}
+
+/* ── Components ─────────────────────────────────────────────────────────── */
 @layer components {
+
+  /* ─ Section card ─ */
   .section-card {
-    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.75rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4), 0 6px 24px rgba(0,0,0,0.3);
+    transition: border-color 0.2s;
   }
+  .section-card:hover { border-color: var(--border-md); }
+
+  /* ─ KPI card ─ */
   .kpi-card {
-    @apply bg-white rounded-lg border border-gray-200 p-4 shadow-sm;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    transition: border-color 0.2s, transform 0.2s;
   }
-  .alert-badge {
-    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800;
-  }
+  .kpi-card:hover { border-color: var(--border-md); transform: translateY(-1px); }
+
+  /* ─ Insight panels ─ */
   .insight-box {
-    @apply bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg text-sm text-blue-900;
+    background: var(--accent-dim);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 1rem 1.25rem;
+    font-size: 15px;
+    color: var(--text-primary);
   }
   .interpretation-box {
-    @apply bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg text-sm text-amber-900;
+    background: var(--amber-dim);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 1rem 1.25rem;
+    font-size: 15px;
+    color: var(--text-primary);
+  }
+  .leadership-box {
+    background: var(--teal-dim);
+    border-left: 3px solid var(--teal);
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 1rem 1.25rem;
+    font-size: 15px;
+    color: var(--text-primary);
   }
   .caution-box {
-    @apply bg-orange-50 border-l-4 border-orange-400 p-4 rounded-r-lg text-sm text-orange-900;
+    background: rgba(245,158,11,0.08);
+    border-left: 3px solid rgba(245,158,11,0.6);
+    border-radius: 0 0.5rem 0.5rem 0;
+    padding: 1rem 1.25rem;
+    font-size: 15px;
+    color: var(--text-primary);
+  }
+
+  /* ─ Badge / tag ─ */
+  .alert-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    background: var(--red-dim);
+    color: #fca5a5;
+    border: 1px solid rgba(239,68,68,0.3);
+  }
+
+  /* ─ Mono label helper ─ */
+  .mono-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* ─ Panel heading ─ */
+  .panel-heading {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  /* ─ Sub heading ─ */
+  .sub-heading {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+    letter-spacing: -0.005em;
+  }
+
+  /* ─ Tab nav button ─ */
+  .tab-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.04em;
+    border-radius: 6px;
+    color: var(--text-secondary);
+    transition: all 0.18s;
+    white-space: nowrap;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  .tab-btn:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+  .tab-btn.active {
+    color: #fff;
+    background: var(--accent-dim);
+    border: 1px solid rgba(14,165,233,0.3);
+  }
+
+  /* ─ Form control ─ */
+  .form-select {
+    background: var(--surface2);
+    border: 1px solid var(--border-md);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 14px;
+    padding: 6px 12px;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 18px;
+    padding-right: 32px;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .form-select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-dim);
+  }
+
+  /* ─ Institute toggle pill ─ */
+  .ic-pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: 'DM Mono', monospace;
+    border: 1px solid var(--border-md);
+    color: var(--text-secondary);
+    background: transparent;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+  .ic-pill:hover { border-color: var(--border-hi); color: var(--text-primary); }
+  .ic-pill.active { color: #fff; border-color: transparent; }
+
+  /* ─ Tab help panel ─ */
+  .tab-help-panel {
+    background: linear-gradient(135deg, rgba(14,165,233,0.07) 0%, rgba(14,165,233,0.03) 100%);
+    border: 1px solid rgba(14,165,233,0.2);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 15px;
+  }
+
+  /* ─ Term definition card ─ */
+  .term-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.875rem 1rem;
+    transition: border-color 0.2s;
+    font-size: 15px;
+  }
+  .term-card:hover { border-color: var(--border-md); }
+
+  /* ─ Progress bar track ─ */
+  .rate-bar-track {
+    width: 80px;
+    height: 4px;
+    background: var(--surface3);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .rate-bar-fill {
+    height: 4px;
+    background: var(--accent);
+    border-radius: 99px;
+    transition: width 0.4s;
+  }
+
+  /* ─ Quadrant badge ─ */
+  .quadrant-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─ Recharts custom tooltip ─ */
+  .chart-tooltip {
+    background: var(--surface3);
+    border: 1px solid var(--border-md);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--text-primary);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  }
+
+  /* ─ Section separator heading ─ */
+  .chart-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.005em;
+    margin-bottom: 0.75rem;
   }
 }

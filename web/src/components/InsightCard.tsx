@@ -16,14 +16,14 @@ export default function InsightCard({ section, hideStats }: InsightCardProps) {
 
       {/* Three-column insight panel */}
       <div className="card overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-100">
+        <div className="px-6 py-4 border-b border-gray-200">
           <span className="text-label">Analysis Notes</span>
         </div>
         <div className="flex divide-x divide-gray-100">
           {/* Data Insight */}
           <div className="insight-col">
             <div className="text-label mb-2">Data Insight</div>
-            <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-wrap">
+            <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
               {section.data_insight}
             </p>
           </div>
@@ -31,7 +31,7 @@ export default function InsightCard({ section, hideStats }: InsightCardProps) {
           {/* Interpretation */}
           <div className="insight-col">
             <div className="text-label mb-2" style={{ color: '#1E3A8A' }}>Interpretation</div>
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-sm text-gray-700 leading-relaxed">
               {section.interpretation}
             </p>
           </div>
@@ -39,7 +39,7 @@ export default function InsightCard({ section, hideStats }: InsightCardProps) {
           {/* Leadership Implication */}
           <div className="insight-col">
             <div className="text-label mb-2" style={{ color: '#065F46' }}>Leadership Implication</div>
-            <p className="text-sm text-gray-600 leading-relaxed">
+            <p className="text-sm text-gray-700 leading-relaxed">
               {section.leadership_implication}
             </p>
           </div>

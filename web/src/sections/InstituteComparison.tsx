@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid,
   Tooltip, Cell, ReferenceLine, ResponsiveContainer,
 } from 'recharts'
 import type { Payline, Section } from '../types'
-import InsightCard from '../components/InsightCard'
+import TabHelpPanel from '../components/TabHelpPanel'
+import MetricDefinitionsCard, { type TermDef } from '../components/MetricDefinitionsCard'
+import InsightPanel from '../components/InsightPanel'
 import { ChartCard, ControlRow, ExecSelect, ToggleGroup, Pill } from '../components/ui'
 import { getQuadrant, QUADRANT_COLORS, QUADRANT_BG } from '../utils'
+import { generateInstituteComparisonInsight } from '../narrativeHelpers'
 import { GRID_PROPS, X_AXIS_PROPS, Y_AXIS_PROPS, TOOLTIP_STYLE, C } from '../theme'
 
 interface InstituteComparisonProps {
@@ -25,8 +28,31 @@ const QUADRANT_ORDER = [
   'Broad Opportunity Window',
 ]
 
-export default function InstituteComparison({ paylines, section }: InstituteComparisonProps) {
-  const [year, setYear]     = useState(2025)
+const IC_COMP_TERMS: TermDef[] = [
+  {
+    term: 'EEP50',
+    meaning: 'The percentile score at which an application has a 50% modeled probability of funding.',
+    whyItMatters: 'Lower EEP50 = more competitive IC. Sorted ascending in this chart — shortest bars are the most selective institutes.',
+  },
+  {
+    term: 'Opportunity Width',
+    meaning: 'The distance in percentile points between EEP80 (80% probability) and EEP20 (20% probability).',
+    whyItMatters: 'Wider = more gradual funding cliff, supporting broader resubmission strategies. Narrower = steeper cliff, demanding score precision.',
+  },
+  {
+    term: 'Sharp Payline',
+    meaning: 'An institute with low EEP50 AND narrow Opportunity Width — both highly selective and cliff-like.',
+    whyItMatters: 'Requires investigators to achieve very strong scores AND leaves almost no gray zone. The most demanding application environment.',
+  },
+  {
+    term: 'Broad Opportunity Window',
+    meaning: 'An institute with higher EEP50 AND wide Opportunity Width — both relatively permissive and gradual.',
+    whyItMatters: 'Supports more flexible resubmission strategies. Near-miss applications have more meaningful residual probability.',
+  },
+]
+
+export default function InstituteComparison({ paylines }: InstituteComparisonProps) {
+  const [year,   setYear]   = useState(2025)
   const [metric, setMetric] = useState<'EEP50' | 'Opportunity_Width'>('EEP50')
 
   const allNih = paylines.find((p) => p.Year === year && p.Institute === 'ALL NIH')
@@ -34,7 +60,7 @@ export default function InstituteComparison({ paylines, section }: InstituteComp
   const data = paylines
     .filter((p) => p.Year === year && p.Institute !== 'ALL NIH' && p.EEP50 !== null)
     .map((p) => ({
-      institute: p.Institute,
+      institute:         p.Institute,
       EEP50:             p.EEP50,
       Opportunity_Width: p.Opportunity_Width,
       quadrant:          getQuadrant(p.EEP50, p.Opportunity_Width),
@@ -74,8 +100,22 @@ export default function InstituteComparison({ paylines, section }: InstituteComp
     )
   }
 
+  const insight = useMemo(
+    () => generateInstituteComparisonInsight(year, metric, data, allNih),
+    [year, metric, data, allNih],
+  )
+
+  const contextLabel = `FY${year} · sorted by ${metric === 'EEP50' ? 'EEP50' : 'Opportunity Width'}`
+
   return (
     <div className="space-y-5">
+
+      <TabHelpPanel
+        what="A cross-institute comparison of either EEP50 (funding selectivity) or Opportunity Width (breadth of the funding gray zone) for all 19 individual NIH institutes in a selected fiscal year. Bars are sorted from most to least competitive."
+        howTo="Use the Year dropdown to select any fiscal year. Use the toggle to switch between EEP50 and Opportunity Width views. The dashed line shows the ALL NIH benchmark. Color-coded quadrant labels identify each institute's typology. Hover bars for full detail."
+        takeaway="In FY2025, most institutes shifted sharply left (lower EEP50), with many entering the Sharp Payline quadrant for the first time. Compare specific ICs to the ALL NIH reference line to gauge relative selectivity."
+      />
+
       {/* Controls */}
       <ControlRow>
         <ExecSelect
@@ -92,7 +132,6 @@ export default function InstituteComparison({ paylines, section }: InstituteComp
           value={metric}
           onChange={setMetric}
         />
-        {/* Quadrant legend */}
         <div className="flex flex-wrap gap-2 ml-auto">
           {QUADRANT_ORDER.map((q) => (
             <Pill key={q} label={q} className={QUADRANT_BG[q]} />
@@ -109,8 +148,8 @@ export default function InstituteComparison({ paylines, section }: InstituteComp
         }
         subtitle={
           metric === 'EEP50'
-            ? 'The percentile at which an application has a 50% modeled funding probability'
-            : 'Percentile span between EEP20 and EEP80 — the width of the meaningful funding zone'
+            ? 'The percentile at which an application has a 50% modeled funding probability · dashed = ALL NIH'
+            : 'Percentile span between EEP20 and EEP80 — the width of the meaningful funding zone · dashed = ALL NIH'
         }
       >
         <ResponsiveContainer width="100%" height={420}>
@@ -141,19 +180,13 @@ export default function InstituteComparison({ paylines, section }: InstituteComp
             />
             <Tooltip content={<TooltipContent />} cursor={{ fill: '#F9FAFB' }} />
 
-            {/* ALL NIH reference */}
             {metric === 'EEP50' && allNih?.EEP50 != null && (
               <ReferenceLine
                 x={allNih.EEP50}
                 stroke="#94A3B8"
                 strokeWidth={1}
                 strokeDasharray="4 2"
-                label={{
-                  value: `ALL NIH ${allNih.EEP50.toFixed(1)}`,
-                  position: 'top',
-                  fontSize: 10,
-                  fill: '#9CA3AF',
-                }}
+                label={{ value: `ALL NIH ${allNih.EEP50.toFixed(1)}`, position: 'top', fontSize: 10, fill: '#9CA3AF' }}
               />
             )}
             {metric === 'Opportunity_Width' && allNih?.Opportunity_Width != null && (
@@ -162,12 +195,7 @@ export default function InstituteComparison({ paylines, section }: InstituteComp
                 stroke="#94A3B8"
                 strokeWidth={1}
                 strokeDasharray="4 2"
-                label={{
-                  value: `ALL NIH ${allNih.Opportunity_Width.toFixed(1)}`,
-                  position: 'top',
-                  fontSize: 10,
-                  fill: '#9CA3AF',
-                }}
+                label={{ value: `ALL NIH ${allNih.Opportunity_Width.toFixed(1)}`, position: 'top', fontSize: 10, fill: '#9CA3AF' }}
               />
             )}
 
@@ -184,7 +212,17 @@ export default function InstituteComparison({ paylines, section }: InstituteComp
         </ResponsiveContainer>
       </ChartCard>
 
-      <InsightCard section={section} />
+      {/* Term definitions */}
+      <MetricDefinitionsCard terms={IC_COMP_TERMS} title="Key Term Definitions" />
+
+      {/* Dynamic insight panel */}
+      <InsightPanel
+        dataInsight={insight.dataInsight}
+        interpretation={insight.interpretation}
+        leadershipImplication={insight.leadershipImplication}
+        caution={insight.caution}
+        contextLabel={contextLabel}
+      />
     </div>
   )
 }

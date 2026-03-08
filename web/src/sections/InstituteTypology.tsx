@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid,
   Tooltip, ReferenceLine, ResponsiveContainer,
 } from 'recharts'
 import type { Payline, Section } from '../types'
-import InsightCard from '../components/InsightCard'
+import TabHelpPanel from '../components/TabHelpPanel'
+import InsightPanel from '../components/InsightPanel'
 import { ChartCard, ControlRow, ExecSelect, Pill } from '../components/ui'
 import { getQuadrant, QUADRANT_COLORS, QUADRANT_BG } from '../utils'
+import { generateTypologyInsight } from '../narrativeHelpers'
 import { GRID_PROPS, X_AXIS_PROPS, Y_AXIS_PROPS, TOOLTIP_STYLE } from '../theme'
 
 interface InstituteTypologyProps {
@@ -28,7 +30,7 @@ const YEAR_OPTS = [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2
   (y) => ({ value: y, label: `FY${y}` }),
 )
 
-export default function InstituteTypology({ paylines, section }: InstituteTypologyProps) {
+export default function InstituteTypology({ paylines }: InstituteTypologyProps) {
   const [year,        setYear]        = useState(2025)
   const [highlighted, setHighlighted] = useState<string | null>(null)
 
@@ -46,7 +48,6 @@ export default function InstituteTypology({ paylines, section }: InstituteTypolo
     return acc
   }, {})
 
-  // Custom dot with IC label
   const CustomDot = (props: {
     cx?: number
     cy?: number
@@ -58,10 +59,7 @@ export default function InstituteTypology({ paylines, section }: InstituteTypolo
     const color = QUADRANT_COLORS[payload.quadrant] ?? '#9CA3AF'
     const fade  = highlighted !== null && !isHL
     return (
-      <g
-        style={{ cursor: 'pointer' }}
-        onClick={() => setHighlighted(isHL ? null : payload.institute)}
-      >
+      <g style={{ cursor: 'pointer' }} onClick={() => setHighlighted(isHL ? null : payload.institute)}>
         <circle
           cx={cx} cy={cy}
           r={isHL ? 9 : 6}
@@ -111,8 +109,26 @@ export default function InstituteTypology({ paylines, section }: InstituteTypolo
     )
   }
 
+  // Extend data to include quadrant string for insight
+  const insightData = data.map((d) => ({
+    ...d,
+    quadrant: d.quadrant as string,
+  }))
+
+  const insight = useMemo(
+    () => generateTypologyInsight(year, insightData),
+    [year, insightData],
+  )
+
   return (
     <div className="space-y-5">
+
+      <TabHelpPanel
+        what="A scatter plot positioning all NIH institutes on two dimensions simultaneously: EEP50 (X axis, funding selectivity) and Opportunity Width (Y axis, breadth of funding gray zone). Each dot is one institute; color indicates which of four strategic quadrants it occupies."
+        howTo="Use the Year dropdown to see how institute positions shift across fiscal years. Click any dot to highlight it. Use the quadrant grid below the chart to see which institutes fall in each category. Quadrant dividers use FY2025 IC medians."
+        takeaway="In FY2025, most institutes shifted left and downward (lower EEP50, narrower Opportunity Width), clustering in the Sharp Payline and Competitive & Probabilistic quadrants — a historically unusual compression."
+      />
+
       {/* Controls */}
       <ControlRow>
         <ExecSelect
@@ -132,7 +148,7 @@ export default function InstituteTypology({ paylines, section }: InstituteTypolo
       <ChartCard
         title={`IC Payline Typology — FY${year}`}
         subtitle="X: EEP50 (lower = more competitive)  ·  Y: Opportunity Width (higher = more probabilistic)  ·  Click a dot to highlight"
-        footnote={`Quadrant reference lines at FY2025 IC medians (EEP50 = ${EEP50_MED}, OW = ${OW_MED} pp). ICs with null Opportunity Width are excluded from the scatter.`}
+        footnote={`Quadrant reference lines at FY2025 IC medians (EEP50 = ${EEP50_MED}, OW = ${OW_MED} pp). ICs with null Opportunity Width are excluded.`}
       >
         <ResponsiveContainer width="100%" height={460}>
           <ScatterChart margin={{ top: 28, right: 32, left: 0, bottom: 28 }}>
@@ -165,8 +181,6 @@ export default function InstituteTypology({ paylines, section }: InstituteTypolo
               }}
             />
             <Tooltip content={<TooltipContent />} cursor={false} />
-
-            {/* Quadrant dividers */}
             <ReferenceLine
               x={EEP50_MED}
               stroke="#E5E7EB"
@@ -181,7 +195,6 @@ export default function InstituteTypology({ paylines, section }: InstituteTypolo
               strokeDasharray="4 3"
               label={{ value: `OW ${OW_MED}`, position: 'right', fontSize: 9, fill: '#9CA3AF' }}
             />
-
             <Scatter data={data} shape={<CustomDot />} name="Institute" />
           </ScatterChart>
         </ResponsiveContainer>
@@ -194,10 +207,7 @@ export default function InstituteTypology({ paylines, section }: InstituteTypolo
           const ics   = byQuadrant[q] ?? []
           return (
             <div key={q} className="card p-4">
-              <div
-                className="text-xs font-semibold uppercase tracking-wide mb-1"
-                style={{ color }}
-              >
+              <div className="text-xs font-semibold uppercase tracking-wide mb-1" style={{ color }}>
                 {q}
               </div>
               <div className="text-3xl font-bold text-gray-800 mb-3">{ics.length}</div>
@@ -208,9 +218,9 @@ export default function InstituteTypology({ paylines, section }: InstituteTypolo
                     onClick={() => setHighlighted(highlighted === d.institute ? null : d.institute)}
                     className="text-xs px-1.5 py-0.5 rounded font-mono transition-all border"
                     style={{
-                      borderColor:  highlighted === d.institute ? color : '#E5E7EB',
-                      background:   highlighted === d.institute ? color + '18' : '#F9FAFB',
-                      color:        highlighted === d.institute ? color : '#6B7280',
+                      borderColor: highlighted === d.institute ? color : '#E5E7EB',
+                      background:  highlighted === d.institute ? color + '18' : '#F9FAFB',
+                      color:       highlighted === d.institute ? color : '#6B7280',
                     }}
                   >
                     {d.institute}
@@ -223,7 +233,14 @@ export default function InstituteTypology({ paylines, section }: InstituteTypolo
         })}
       </div>
 
-      <InsightCard section={section} />
+      {/* Dynamic insight panel */}
+      <InsightPanel
+        dataInsight={insight.dataInsight}
+        interpretation={insight.interpretation}
+        leadershipImplication={insight.leadershipImplication}
+        caution={insight.caution}
+        contextLabel={`FY${year} · ${data.length} institutes plotted`}
+      />
     </div>
   )
 }

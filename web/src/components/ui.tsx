@@ -19,14 +19,14 @@ export function ChartCard({ title, subtitle, footnote, legend, className = '', c
     <div className={`card ${className}`}>
       <div className="px-6 pt-6 pb-1">
         <div className="text-label">{title}</div>
-        {subtitle && <p className="mt-0.5 text-xs text-gray-400">{subtitle}</p>}
+        {subtitle && <p className="mt-0.5 text-xs text-gray-600">{subtitle}</p>}
         {legend && <div className="mt-3">{legend}</div>}
       </div>
       <div className="px-6 pt-3 pb-4">
         {children}
       </div>
       {footnote && (
-        <div className="px-6 py-3 border-t border-gray-50 text-xs text-gray-400">
+        <div className="px-6 py-3 border-t border-gray-100 text-xs text-gray-600">
           {footnote}
         </div>
       )}
@@ -59,7 +59,7 @@ interface ExecSelectProps {
 export function ExecSelect({ label, value, onChange, options }: ExecSelectProps) {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-xs font-medium text-gray-500 whitespace-nowrap">{label}</span>
+      <span className="text-xs font-semibold text-gray-700 whitespace-nowrap">{label}</span>
       <select
         className="exec-select"
         value={value}
@@ -136,7 +136,7 @@ export function MetricCard({ label, value, delta, deltaDown, note, alert }: Metr
           {delta}
         </div>
       )}
-      {note && <div className="mt-1 text-xs text-gray-400 leading-tight">{note}</div>}
+      {note && <div className="mt-1 text-xs text-gray-600 leading-tight">{note}</div>}
     </div>
   )
 }
@@ -167,7 +167,7 @@ export function ChartLegend({ items }: ChartLegendProps) {
               />
             </svg>
           </div>
-          <span className="text-xs text-gray-500">{item.label}</span>
+          <span className="text-xs text-gray-600">{item.label}</span>
         </div>
       ))}
     </div>

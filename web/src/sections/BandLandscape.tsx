@@ -1,12 +1,15 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid,
   Tooltip, Legend, ResponsiveContainer,
 } from 'recharts'
 import type { BandSummary, Section } from '../types'
-import InsightCard from '../components/InsightCard'
+import TabHelpPanel from '../components/TabHelpPanel'
+import MetricDefinitionsCard, { type TermDef } from '../components/MetricDefinitionsCard'
+import InsightPanel from '../components/InsightPanel'
 import { ChartCard, ControlRow, ExecSelect } from '../components/ui'
 import { BAND_ORDER } from '../utils'
+import { generateFundingLandscapeInsight } from '../narrativeHelpers'
 import { GRID_PROPS, X_AXIS_PROPS, Y_AXIS_PROPS, TOOLTIP_STYLE } from '../theme'
 
 interface BandLandscapeProps {
@@ -17,19 +20,45 @@ interface BandLandscapeProps {
 const DEFAULT_YEARS = [2019, 2024, 2025]
 const TOGGLE_YEARS  = [2014, 2016, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
 
-// Refined year colors for executive palette
 const EXEC_YEAR_COLORS: Record<number, string> = {
   2014: '#CBD5E1', 2015: '#CBD5E1', 2016: '#CBD5E1',
   2017: '#CBD5E1', 2018: '#CBD5E1',
-  2019: '#94A3B8',  // baseline
+  2019: '#94A3B8',
   2020: '#9CA3AF', 2021: '#9CA3AF',
   2022: '#64748B', 2023: '#64748B',
-  2024: '#2563EB',  // recent
-  2025: '#1E3A8A',  // current (darker blue — alert without using red in bars)
+  2024: '#2563EB',
+  2025: '#1E3A8A',
 }
 
+const BAND_TERMS: TermDef[] = [
+  {
+    term: 'Percentile Band',
+    meaning: 'A grouped range of percentile scores (e.g., 1–5, 6–10, 11–15) used to aggregate applications for analysis.',
+    whyItMatters: 'Bands reveal how funding rates change at each score tier — the steeper the drop from band to band, the sharper the funding cliff.',
+  },
+  {
+    term: 'Funding Rate',
+    meaning: 'The fraction of applications submitted in a percentile band that were actually funded — the observed proportion.',
+    whyItMatters: 'The empirical ground truth of competitiveness. A 90% funding rate in the 1–5 band vs 15% in the 11–15 band quantifies the real cost of a marginal score difference.',
+  },
+  {
+    term: 'Application Volume',
+    meaning: 'The total number of applications submitted within a percentile band in a given fiscal year.',
+    whyItMatters: 'High application volume in a band means more competition for a limited pool. Bands with few applications carry more statistical uncertainty in their funding rates.',
+  },
+  {
+    term: 'Highly Selective',
+    meaning: 'An environment where even the top bands (1–5, 6–10) show depressed funding rates, typically below 60% and 20% respectively.',
+    whyItMatters: 'Signals that the overall funding environment is compressed — most funded applications cluster in only the highest-scoring tier.',
+  },
+  {
+    term: 'More Permissive',
+    meaning: 'An environment where funding rates remain above historical averages across multiple bands, and the drop-off is more gradual.',
+    whyItMatters: 'A more permissive band profile means that near-payline applications (bands 11–15) still carry meaningful funding probability.',
+  },
+]
 
-export default function BandLandscape({ bandSummary, section }: BandLandscapeProps) {
+export default function BandLandscape({ bandSummary }: BandLandscapeProps) {
   const [institute,     setInstitute]     = useState('ALL NIH')
   const [selectedYears, setSelectedYears] = useState<number[]>(DEFAULT_YEARS)
 
@@ -44,14 +73,14 @@ export default function BandLandscape({ bandSummary, section }: BandLandscapePro
         <div className="font-semibold text-gray-700 pb-1 mb-1 border-b border-gray-100">
           Band {label} · {institute}
         </div>
-        {payload.map((p) => (
-          p.value !== null && p.value !== undefined && (
+        {payload.map((p) =>
+          p.value !== null && p.value !== undefined ? (
             <div key={p.name} className="flex justify-between gap-6 mt-0.5 text-xs">
               <span style={{ color: p.color }}>{p.name}</span>
               <span className="font-semibold tabular-nums">{(p.value as number).toFixed(1)}%</span>
             </div>
-          )
-        ))}
+          ) : null,
+        )}
       </div>
     )
   }
@@ -77,8 +106,25 @@ export default function BandLandscape({ bandSummary, section }: BandLandscapePro
       prev.includes(yr) ? prev.filter((y) => y !== yr) : [...prev, yr].sort(),
     )
 
+  // Dynamic insight — updates when institute or selectedYears changes
+  const insight = useMemo(
+    () => generateFundingLandscapeInsight(institute, selectedYears, bandSummary),
+    [institute, selectedYears, bandSummary],
+  )
+
+  const contextLabel = selectedYears.length > 0
+    ? `${institute} · FY${selectedYears.join(', FY')}`
+    : `${institute} · no years selected`
+
   return (
     <div className="space-y-5">
+
+      <TabHelpPanel
+        what="Funding rates (percent of applications funded) for each percentile band, for any institute and set of fiscal years. Bands are 1–5, 6–10, 11–15, 16–20, 21–25, and 26+. Higher bands (smaller percentile numbers) correspond to stronger applications."
+        howTo="Use the Institute dropdown to select any IC. Toggle year buttons to add or remove fiscal years from the comparison. Hover over bars to see exact funding rates. Select FY2024 and FY2025 together to see the compression effect."
+        takeaway="The steeper the funding rate drop between bands 1–5 and 6–10, the sharper the payline. FY2025 shows compressed rates even in the top bands for most institutes — a historically unusual pattern."
+      />
+
       {/* Controls */}
       <ControlRow>
         <ExecSelect
@@ -115,7 +161,7 @@ export default function BandLandscape({ bandSummary, section }: BandLandscapePro
       {/* Chart */}
       <ChartCard
         title={`Funding Rate by Percentile Band — ${institute}`}
-        subtitle="Percentage of applications funded within each percentile band. Collapse in 11–20 bands reveals FY2025 payline compression."
+        subtitle="Percentage of applications funded within each percentile band. Lower percentile numbers = stronger applications."
         footnote="Bands with fewer than 30 applications carry statistical uncertainty and should not be used for IC-specific planning in isolation."
       >
         <ResponsiveContainer width="100%" height={380}>
@@ -144,9 +190,7 @@ export default function BandLandscape({ bandSummary, section }: BandLandscapePro
               }}
             />
             <Tooltip content={<TooltipContent />} cursor={{ fill: '#F9FAFB' }} />
-            <Legend
-              wrapperStyle={{ fontSize: 12, paddingTop: 8, color: '#6B7280' }}
-            />
+            <Legend wrapperStyle={{ fontSize: 12, paddingTop: 8, color: '#6B7280' }} />
             {selectedYears.map((yr) => (
               <Bar
                 key={yr}
@@ -160,7 +204,17 @@ export default function BandLandscape({ bandSummary, section }: BandLandscapePro
         </ResponsiveContainer>
       </ChartCard>
 
-      <InsightCard section={section} />
+      {/* Term definitions */}
+      <MetricDefinitionsCard terms={BAND_TERMS} title="Key Term Definitions" />
+
+      {/* Dynamic insight panel */}
+      <InsightPanel
+        dataInsight={insight.dataInsight}
+        interpretation={insight.interpretation}
+        leadershipImplication={insight.leadershipImplication}
+        caution={insight.caution}
+        contextLabel={contextLabel}
+      />
     </div>
   )
 }

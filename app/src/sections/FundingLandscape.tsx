@@ -1,97 +1,150 @@
+import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import SectionShell from '../components/SectionShell';
 import InsightPanel from '../components/InsightPanel';
 import LoadingSpinner from '../components/LoadingSpinner';
+import TabHelpPanel from '../components/TabHelpPanel';
+import InfoTooltip from '../components/InfoTooltip';
 import { useData } from '../hooks/useData';
+import { generateFundingLandscapeInsight } from '../narrativeHelpers';
 import type { InstituteProfile } from '../types';
 
 const BANDS = ['1-5', '6-10', '11-15', '16-20', '21-25', '26+'] as const;
 
+const ALL_NIH_COMPARISON = [
+  { band: '1–5', fy2019: 90.3, fy2024: 89.9, fy2025: 91.5 },
+  { band: '6–10', fy2019: 82.0, fy2024: 72.9, fy2025: 71.9 },
+  { band: '11–15', fy2019: 74.9, fy2024: 55.6, fy2025: 30.5 },
+  { band: '16–20', fy2019: 53.5, fy2024: 31.3, fy2025: 12.8 },
+  { band: '21–25', fy2019: 32.1, fy2024: 14.1, fy2025: 7.1 },
+  { band: '26+', fy2019: 5.6, fy2024: 2.0, fy2025: 0.7 },
+];
+
+const TICK = { fill: 'var(--text-muted)', fontSize: 11, fontFamily: '"DM Mono", monospace' };
+const GRID = 'rgba(255,255,255,0.05)';
+const TOOLTIP_STYLE = { background: 'var(--surface3)', border: '1px solid var(--border-md)', borderRadius: '8px', color: 'var(--text-primary)', fontSize: '12px' };
+
 export default function FundingLandscape() {
   const { data, loading } = useData<InstituteProfile[]>('institute_profiles.json');
+  const [selectedIC, setSelectedIC] = useState('ALL NIH');
 
   if (loading || !data) return <LoadingSpinner />;
 
+  const allInstitutes = data.map(d => d.institute);
+  const profile = data.find(d => d.institute === selectedIC);
   const allNih = data.find(d => d.isAggregate);
-  if (!allNih) return null;
+  if (!profile || !allNih) return null;
 
-  const bandChart2025 = BANDS.map(b => ({
+  const isAggregate = profile.isAggregate;
+
+  const bandChart = BANDS.map(b => ({
     band: b,
-    'Rate %': +(allNih.bandRates2025[b].rate * 100).toFixed(1),
-    'Applications': allNih.bandRates2025[b].total,
+    'Rate %': +((profile.bandRates2025[b]?.rate ?? 0) * 100).toFixed(1),
+    Applications: profile.bandRates2025[b]?.total ?? 0,
   }));
 
-  const comparison = [
-    { band: '1–5', fy2019: 90.3, fy2024: 89.9, fy2025: 91.5 },
-    { band: '6–10', fy2019: 82.0, fy2024: 72.9, fy2025: 71.9 },
-    { band: '11–15', fy2019: 74.9, fy2024: 55.6, fy2025: 30.5 },
-    { band: '16–20', fy2019: 53.5, fy2024: 31.3, fy2025: 12.8 },
-    { band: '21–25', fy2019: 32.1, fy2024: 14.1, fy2025: 7.1 },
-    { band: '26+', fy2019: 5.6, fy2024: 2.0, fy2025: 0.7 },
-  ];
+  const narrative = generateFundingLandscapeInsight(selectedIC, profile.bandRates2025, isAggregate);
 
   return (
     <SectionShell
       title="Funding Landscape by Percentile Band"
-      description="Funding rates by the six standard NIH percentile bands for ALL NIH, with comparison across FY2019, FY2024, and FY2025."
+      description="Funding rates by the six standard NIH percentile bands. Select an institute to explore its specific band landscape."
     >
-      {/* Band rates 2025 */}
-      <h3 className="text-lg font-semibold text-gray-800 mb-3">ALL NIH Band Funding Rates — FY2025</h3>
-      <div className="h-64">
+      <TabHelpPanel
+        what="Funding rates and application volumes broken down by six percentile bands (1–5 through 26+) for a selected institute."
+        why="Band-level rates show where the funding cliff is sharpest and how competition differs across score ranges."
+        how="Each bar shows the % of applications in that band that received an award. Higher bars = more funded. The cross-year comparison (ALL NIH only) shows how band rates shifted from FY2019 to FY2025."
+        controls="Use the Institute dropdown to switch between ALL NIH and individual institutes. All charts, table, and narrative update automatically."
+        tip="The sharpest drop in FY2025 was in the 11–15 and 16–20 bands — historically productive resubmission zones now face dramatically lower funding odds."
+      />
+
+      {/* Institute Selector */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
+        <label style={{ fontFamily: '"DM Mono", monospace', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
+          Select Institute
+        </label>
+        <select value={selectedIC} onChange={e => setSelectedIC(e.target.value)} className="form-select">
+          {allInstitutes.map(ic => <option key={ic} value={ic}>{ic}</option>)}
+        </select>
+      </div>
+
+      {/* Band rates chart */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+        <h3 className="chart-heading">{selectedIC}: Band Funding Rates — FY2025</h3>
+        <InfoTooltip term="Percentile Band" definition="A range of percentile scores grouped into a 5-point window (e.g., 1–5, 6–10)." why="Bands reveal where the funding probability cliff is sharpest." />
+      </div>
+      <div style={{ height: '240px', marginBottom: '2rem' }}>
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={bandChart2025} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis dataKey="band" tick={{ fontSize: 12 }} />
-            <YAxis tick={{ fontSize: 12 }} unit="%" domain={[0, 100]} />
-            <Tooltip formatter={(val: number) => `${val.toFixed(1)}%`} />
-            <Bar dataKey="Rate %" fill="#2563eb" radius={[4, 4, 0, 0]} name="Funding Rate (FY2025)" />
+          <BarChart data={bandChart} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="3 3" stroke={GRID} />
+            <XAxis dataKey="band" tick={TICK} />
+            <YAxis tick={TICK} unit="%" domain={[0, 100]} />
+            <Tooltip formatter={(val: number) => `${val.toFixed(1)}%`} contentStyle={TOOLTIP_STYLE} />
+            <Bar dataKey="Rate %" fill="var(--accent)" radius={[4, 4, 0, 0]} name="Funding Rate (FY2025)" />
           </BarChart>
         </ResponsiveContainer>
       </div>
 
-      {/* Cross-year comparison */}
-      <h3 className="text-lg font-semibold text-gray-800 mb-3 mt-8">Band Funding Rates: FY2019 vs FY2024 vs FY2025</h3>
-      <div className="h-72">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={comparison} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis dataKey="band" tick={{ fontSize: 12 }} />
-            <YAxis tick={{ fontSize: 12 }} unit="%" domain={[0, 100]} />
-            <Tooltip formatter={(val: number) => `${val.toFixed(1)}%`} />
-            <Legend />
-            <Bar dataKey="fy2019" fill="#16a34a" radius={[3, 3, 0, 0]} name="FY2019" />
-            <Bar dataKey="fy2024" fill="#d97706" radius={[3, 3, 0, 0]} name="FY2024" />
-            <Bar dataKey="fy2025" fill="#dc2626" radius={[3, 3, 0, 0]} name="FY2025" />
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
+      {/* Cross-year comparison — ALL NIH only */}
+      {isAggregate && (
+        <>
+          <h3 className="chart-heading" style={{ marginBottom: '12px' }}>ALL NIH Band Funding Rates: FY2019 vs FY2024 vs FY2025</h3>
+          <div style={{ height: '260px', marginBottom: '2rem' }}>
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={ALL_NIH_COMPARISON} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke={GRID} />
+                <XAxis dataKey="band" tick={TICK} />
+                <YAxis tick={TICK} unit="%" domain={[0, 100]} />
+                <Tooltip formatter={(val: number) => `${val.toFixed(1)}%`} contentStyle={TOOLTIP_STYLE} />
+                <Legend wrapperStyle={{ fontSize: '11px', fontFamily: '"DM Mono", monospace', paddingTop: '8px' }} />
+                <Bar dataKey="fy2019" fill="#10b981" radius={[3, 3, 0, 0]} name="FY2019" />
+                <Bar dataKey="fy2024" fill="#f59e0b" radius={[3, 3, 0, 0]} name="FY2024" />
+                <Bar dataKey="fy2025" fill="#ef4444" radius={[3, 3, 0, 0]} name="FY2025" />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </>
+      )}
 
-      {/* Applications by band */}
-      <h3 className="text-lg font-semibold text-gray-800 mb-3 mt-8">Application Volume by Band — FY2025</h3>
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200 text-sm">
+      {/* Application Volume by Band table */}
+      <h3 className="chart-heading" style={{ marginBottom: '0.75rem' }}>{selectedIC}: Application Volume by Band — FY2025</h3>
+      <div style={{ overflowX: 'auto', borderRadius: '8px', border: '1px solid var(--border)' }}>
+        <table style={{ width: '100%' }}>
           <thead>
-            <tr className="bg-gray-50">
-              {['Percentile Band', 'Applications', 'Funded', 'Rate (FY2025)', 'Rate (FY2019 est.)', 'Change'].map(h => (
-                <th key={h} className="px-4 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">{h}</th>
-              ))}
+            <tr>
+              {['Percentile Band', 'Applications', 'Funded (est.)', 'Rate (FY2025)',
+                ...(isAggregate ? ['Rate (FY2019)', 'Δ vs 2019'] : [])
+              ].map(h => <th key={h}>{h}</th>)}
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-100">
+          <tbody>
             {BANDS.map((b, i) => {
-              const row = allNih.bandRates2025[b];
-              const comp = comparison[i];
+              const row = profile.bandRates2025[b];
+              const comp = isAggregate ? ALL_NIH_COMPARISON[i] : null;
               const change = comp ? +(comp.fy2025 - comp.fy2019).toFixed(1) : null;
               return (
-                <tr key={b} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                  <td className="px-4 py-2 font-semibold text-gray-900">{b}</td>
-                  <td className="px-4 py-2 text-gray-700">{row.total.toLocaleString()}</td>
-                  <td className="px-4 py-2 text-gray-700">{Math.round(row.rate * row.total)}</td>
-                  <td className="px-4 py-2 font-semibold text-blue-700">{(row.rate * 100).toFixed(1)}%</td>
-                  <td className="px-4 py-2 text-gray-500">{comp ? `${comp.fy2019.toFixed(1)}%` : '—'}</td>
-                  <td className={`px-4 py-2 font-medium ${change !== null && change < 0 ? 'text-red-600' : 'text-green-600'}`}>
-                    {change !== null ? `${change > 0 ? '+' : ''}${change} pp` : '—'}
+                <tr key={b}>
+                  <td style={{ fontWeight: 700, color: 'var(--text-primary)', fontFamily: '"DM Mono", monospace' }}>{b}</td>
+                  <td style={{ fontFamily: '"DM Mono", monospace' }}>{row?.total.toLocaleString() ?? '—'}</td>
+                  <td style={{ fontFamily: '"DM Mono", monospace' }}>{row ? Math.round(row.rate * row.total) : '—'}</td>
+                  <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <div className="rate-bar-track">
+                        <div className="rate-bar-fill" style={{ width: `${row ? Math.min(row.rate * 100, 100) : 0}%` }} />
+                      </div>
+                      <span style={{ fontFamily: '"DM Mono", monospace', fontSize: '12px', fontWeight: 600, color: 'var(--accent)' }}>
+                        {row ? `${(row.rate * 100).toFixed(1)}%` : '—'}
+                      </span>
+                    </div>
                   </td>
+                  {isAggregate && (
+                    <>
+                      <td style={{ fontFamily: '"DM Mono", monospace', color: 'var(--text-secondary)' }}>{comp ? `${comp.fy2019.toFixed(1)}%` : '—'}</td>
+                      <td style={{ fontFamily: '"DM Mono", monospace', fontWeight: 600, color: change !== null && change < 0 ? '#f87171' : '#34d399' }}>
+                        {change !== null ? `${change > 0 ? '+' : ''}${change} pp` : '—'}
+                      </td>
+                    </>
+                  )}
                 </tr>
               );
             })}
@@ -100,10 +153,11 @@ export default function FundingLandscape() {
       </div>
 
       <InsightPanel
-        insight="In FY2025, the ALL NIH funding rate by band shows a sharply bifurcated story. The 1–5 band retains a 91.5% rate. But the 11–15 band, which funded 74.9% of applications in 2019, now funds only 30.5%. The 16–20 band declined from 53.5% to 12.8%. The 21–25 band fell from 32.1% to 7.1%. The '26+' band rate dropped to 0.7% — effectively zero."
-        interpretation="The 'gray zone' of probabilistic funding has contracted from the 11–25 percentile range to approximately the 8–16 range. Applications scoring in the 17–25 zone, which historically represented a productive resubmission investment, now face single-digit funding probabilities."
-        leadershipImplication="Institutional resubmission policy should be revised. The prior guidance of 'resubmit anything within 5 percentile points of the payline' is no longer appropriate when the effective payline is near percentile 10–11. Scores in the 12–15 range remain viable resubmission candidates; scores above 20 should be evaluated for alternative strategies."
-        caution="Band-level rates for individual institutes with fewer than 30 applications per band carry substantial statistical uncertainty. The ALL NIH figures here are highly reliable (hundreds to thousands of applications per band)."
+        contextLabel={`Based on current selection: ${selectedIC}`}
+        insight={narrative.insight}
+        interpretation={narrative.interpretation}
+        leadershipImplication={narrative.leadershipImplication}
+        caution={narrative.caution}
       />
     </SectionShell>
   );

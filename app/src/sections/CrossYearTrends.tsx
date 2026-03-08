@@ -3,14 +3,21 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import SectionShell from '../components/SectionShell';
 import InsightPanel from '../components/InsightPanel';
 import LoadingSpinner from '../components/LoadingSpinner';
+import TabHelpPanel from '../components/TabHelpPanel';
+import InfoTooltip from '../components/InfoTooltip';
 import { useData } from '../hooks/useData';
+import { generateTrendInsight } from '../narrativeHelpers';
 import type { InstituteProfile } from '../types';
 
 const COLORS = [
-  '#2563eb','#dc2626','#16a34a','#d97706','#9333ea','#0891b2',
-  '#db2777','#65a30d','#ea580c','#7c3aed','#0d9488','#b45309',
-  '#4f46e5','#be123c','#15803d','#c2410c','#6d28d9','#0369a1',
+  '#0ea5e9','#ef4444','#10b981','#f59e0b','#8b5cf6','#06b6d4',
+  '#ec4899','#84cc16','#f97316','#7c3aed','#14b8a6','#ca8a04',
+  '#6366f1','#e11d48','#16a34a','#c2410c','#7c3aed','#0284c7',
 ];
+
+const TICK = { fill: 'var(--text-muted)', fontSize: 11, fontFamily: '"DM Mono", monospace' };
+const GRID = 'rgba(255,255,255,0.05)';
+const TOOLTIP_STYLE = { background: 'var(--surface3)', border: '1px solid var(--border-md)', borderRadius: '8px', color: 'var(--text-primary)', fontSize: '12px' };
 
 export default function CrossYearTrends() {
   const { data, loading } = useData<InstituteProfile[]>('institute_profiles.json');
@@ -43,44 +50,65 @@ export default function CrossYearTrends() {
     .filter(d => d.change !== null)
     .sort((a, b) => (a.change ?? 0) - (b.change ?? 0));
 
-  const toggle = (ic: string) => {
+  const toggle = (ic: string) =>
     setSelected(prev => prev.includes(ic) ? prev.filter(x => x !== ic) : [...prev, ic]);
-  };
+
+  const narrative = generateTrendInsight(selected, data.map(d => ({
+    institute: d.institute,
+    history: d.history,
+    fy2025: { eep50: d.fy2025.eep50, eep50YoYChange: d.fy2025.eep50YoYChange },
+  })));
 
   return (
     <SectionShell
       title="Cross-Year Funding Trends by Institute"
       description="Year-over-year movement in EEP50 across all 20 institutes from FY2014 to FY2025."
     >
+      <TabHelpPanel
+        what="Year-over-year EEP50 trends for selected institutes from FY2014 to FY2025, plus a table showing how much each institute's payline changed from FY2024 to FY2025."
+        why="Comparing multiple institutes on the same chart reveals whether compression is system-wide or institute-specific — critical for distinguishing policy-level shifts from IC-specific changes."
+        how="Each colored line = one institute's EEP50 over time. Falling lines = tighter paylines. Steeper FY2024–2025 drops = more compression. The table ranks all ICs by magnitude of FY2024→FY2025 change."
+        controls="Toggle institute buttons to add or remove lines. The narrative updates to reflect the currently selected set."
+        tip="In FY2025, all 20 institutes moved in the same direction (tighter). The magnitude varies enormously: NIA dropped 13.0 pp while NIDCR dropped only 1.0 pp."
+      />
+
       {/* Institute selector */}
-      <div className="mb-4">
-        <p className="text-sm font-medium text-gray-600 mb-2">Select institutes to display:</p>
-        <div className="flex flex-wrap gap-2">
-          {allInstitutes.map((ic, i) => (
-            <button
-              key={ic}
-              onClick={() => toggle(ic)}
-              className={`px-3 py-1 rounded-full text-xs font-medium border transition-colors ${
-                selected.includes(ic)
-                  ? 'text-white border-transparent'
-                  : 'bg-white text-gray-600 border-gray-300 hover:border-gray-400'
-              }`}
-              style={selected.includes(ic) ? { backgroundColor: COLORS[i % COLORS.length] } : {}}
-            >
-              {ic}
-            </button>
-          ))}
+      <div style={{ marginBottom: '1.25rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+          <p style={{ fontFamily: '"DM Mono", monospace', fontSize: '10px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-muted)' }}>
+            Select Institutes
+          </p>
+          <InfoTooltip term="EEP50 Trend" definition="The modeled 50% funding probability threshold for each institute, plotted year by year." why="Shows how competitive pressures have evolved at each institute." />
+        </div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+          {allInstitutes.map((ic, i) => {
+            const isActive = selected.includes(ic);
+            return (
+              <button
+                key={ic}
+                onClick={() => toggle(ic)}
+                className="ic-pill"
+                style={isActive ? {
+                  backgroundColor: COLORS[i % COLORS.length],
+                  borderColor: 'transparent',
+                  color: '#fff',
+                } : {}}
+              >
+                {ic}
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      <div className="h-80">
+      <div style={{ height: '300px', marginBottom: '2rem' }}>
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={chartData} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
-            <XAxis dataKey="year" tick={{ fontSize: 12 }} />
-            <YAxis tick={{ fontSize: 12 }} label={{ value: 'EEP50 (Percentile)', angle: -90, position: 'insideLeft', style: { fontSize: 11 } }} />
-            <Tooltip formatter={(val: number) => val?.toFixed(1) ?? 'N/A'} />
-            <Legend />
+            <CartesianGrid strokeDasharray="3 3" stroke={GRID} />
+            <XAxis dataKey="year" tick={TICK} />
+            <YAxis tick={TICK} label={{ fill: 'var(--text-muted)', fontSize: 10, fontFamily: '"DM Mono", monospace', value: 'EEP50 (Percentile)', angle: -90, position: 'insideLeft' }} />
+            <Tooltip formatter={(val: number) => val?.toFixed(1) ?? 'N/A'} contentStyle={TOOLTIP_STYLE} />
+            <Legend wrapperStyle={{ fontSize: '11px', fontFamily: '"DM Mono", monospace', paddingTop: '8px' }} />
             {selected.map((ic, i) => (
               <Line
                 key={ic}
@@ -97,31 +125,37 @@ export default function CrossYearTrends() {
       </div>
 
       {/* YoY Change table */}
-      <h3 className="text-lg font-semibold text-gray-800 mb-3 mt-8">EEP50 Change FY2024 → FY2025 (All ICs)</h3>
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200 text-sm">
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.75rem' }}>
+        <h3 className="chart-heading">EEP50 Change FY2024 → FY2025 (All ICs)</h3>
+        <InfoTooltip term="YoY Change" definition="Year-over-year change in EEP50 from FY2024 to FY2025, in percentile points." why="Negative values = tighter paylines. Larger negative = more severe compression." />
+      </div>
+      <div style={{ overflowX: 'auto', borderRadius: '8px', border: '1px solid var(--border)' }}>
+        <table style={{ width: '100%' }}>
           <thead>
-            <tr className="bg-gray-50">
-              {['Institute', 'EEP50 (FY2024)', 'EEP50 (FY2025)', 'Change (pp)', 'Direction'].map(h => (
-                <th key={h} className="px-4 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">{h}</th>
-              ))}
+            <tr>
+              {['Institute', 'EEP50 (FY2024)', 'EEP50 (FY2025)', 'Change (pp)', 'Magnitude'].map(h => <th key={h}>{h}</th>)}
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-100">
-            {yoyData.map((d, i) => (
-              <tr key={d.institute} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                <td className="px-4 py-2 font-semibold text-gray-900">{d.institute}</td>
-                <td className="px-4 py-2 text-gray-700">{d.eep50_2024?.toFixed(1) ?? '—'}</td>
-                <td className="px-4 py-2 text-gray-700">{d.eep50_2025?.toFixed(1) ?? '—'}</td>
-                <td className={`px-4 py-2 font-bold ${(d.change ?? 0) < 0 ? 'text-red-600' : 'text-green-600'}`}>
+          <tbody>
+            {yoyData.map(d => (
+              <tr
+                key={d.institute}
+                onClick={() => toggle(d.institute)}
+                style={{ cursor: 'pointer' }}
+              >
+                <td style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{d.institute}</td>
+                <td style={{ fontFamily: '"DM Mono", monospace' }}>{d.eep50_2024?.toFixed(1) ?? '—'}</td>
+                <td style={{ fontFamily: '"DM Mono", monospace' }}>{d.eep50_2025?.toFixed(1) ?? '—'}</td>
+                <td style={{ fontFamily: '"DM Mono", monospace', fontWeight: 700, color: (d.change ?? 0) < 0 ? '#f87171' : '#34d399' }}>
                   {d.change !== null ? `${d.change > 0 ? '+' : ''}${d.change.toFixed(1)}` : '—'}
                 </td>
-                <td className="px-4 py-2">
-                  <div className="w-full bg-gray-100 rounded-full h-2 relative">
-                    <div
-                      className="absolute right-0 top-0 h-2 rounded-full bg-red-400"
-                      style={{ width: `${Math.min(Math.abs((d.change ?? 0)) / 15 * 100, 100)}%` }}
-                    ></div>
+                <td>
+                  <div style={{ width: '100%', background: 'var(--surface3)', borderRadius: '99px', height: '4px', position: 'relative', overflow: 'hidden' }}>
+                    <div style={{
+                      position: 'absolute', right: 0, top: 0, height: '4px',
+                      borderRadius: '99px', background: '#ef4444',
+                      width: `${Math.min(Math.abs((d.change ?? 0)) / 15 * 100, 100)}%`,
+                    }} />
                   </div>
                 </td>
               </tr>
@@ -129,11 +163,16 @@ export default function CrossYearTrends() {
           </tbody>
         </table>
       </div>
+      <p style={{ fontSize: '11px', color: 'var(--text-muted)', marginTop: '6px', fontFamily: '"DM Mono", monospace' }}>
+        Click a row to toggle that institute on the chart
+      </p>
 
       <InsightPanel
-        insight="The 2019–2023 ALL NIH EEP50 ranged within a 0.8-point band (mean 19.0, σ = 0.4), indicating structural stability over five years. FY2024 introduced the first significant break (−2.4 pp to 16.8). FY2025 accelerated with a further −5.6 pp decline to 11.1. The three most compressed ICs (2024→2025): NIA (−13.0 pp), NIMHD (−11.9 pp), NINR (−10.5 pp). Least compressed: NIDCR (−1.0 pp), NIAMS (−1.6 pp). No institute showed any loosening."
-        interpretation="The universal direction (all negative) combined with highly variable magnitude signals a two-layer phenomenon: a system-wide constraint plus IC-specific factors (mission expansions, council actions, set-aside programs) producing differential compression."
-        leadershipImplication="Institutional benchmarking should be conducted against IC-specific historical trends. An investigator at NIA whose score moved from 22 to 19 between resubmissions appears to have improved — but if NIA's EEP50 dropped 13 points simultaneously, their competitive position may have worsened."
+        contextLabel={`Based on current selection: ${selected.join(', ')}`}
+        insight={narrative.insight}
+        interpretation={narrative.interpretation}
+        leadershipImplication={narrative.leadershipImplication}
+        caution={narrative.caution}
       />
     </SectionShell>
   );
