@@ -1,0 +1,239 @@
+file,year,institute,status,rows,notes
+NDB_Report_ID_302_exp_03062026(1).xlsx,2024,ALL NIH,ok,66,
+NDB_Report_ID_302_exp_03062026(10).xlsx,2015,ALL NIH,ok,76,
+NDB_Report_ID_302_exp_03062026(100).xlsx,2018,NIAMS,warning,56,Suppressed 'D' in R56 Awards: 56 rows → NaN
+NDB_Report_ID_302_exp_03062026(101).xlsx,2019,NIAMS,ok,57,
+NDB_Report_ID_302_exp_03062026(102).xlsx,2020,NIAMS,ok,58,
+NDB_Report_ID_302_exp_03062026(103).xlsx,2021,NIAMS,warning,55,Suppressed 'D' in R56 Awards: 55 rows → NaN
+NDB_Report_ID_302_exp_03062026(104).xlsx,2022,NIAMS,ok,59,
+NDB_Report_ID_302_exp_03062026(105).xlsx,2023,NIAMS,warning,57,Suppressed 'D' in R56 Awards: 57 rows → NaN
+NDB_Report_ID_302_exp_03062026(106).xlsx,2024,NIAMS,warning,57,Suppressed 'D' in R56 Awards: 57 rows → NaN
+NDB_Report_ID_302_exp_03062026(107).xlsx,2025,NIAMS,warning,57,Suppressed 'D' in R56 Awards: 57 rows → NaN
+NDB_Report_ID_302_exp_03062026(108).xlsx,2025,NICHD,ok,58,
+NDB_Report_ID_302_exp_03062026(109).xlsx,2024,NICHD,warning,57,Suppressed 'D' in R56 Awards: 57 rows → NaN
+NDB_Report_ID_302_exp_03062026(11).xlsx,2014,ALL NIH,ok,85,Dropped 1 row(s) with Percentile=0
+NDB_Report_ID_302_exp_03062026(110).xlsx,2023,NICHD,warning,59,Suppressed 'D' in R56 Awards: 59 rows → NaN
+NDB_Report_ID_302_exp_03062026(111).xlsx,2022,NICHD,warning,58,Suppressed 'D' in R56 Awards: 58 rows → NaN
+NDB_Report_ID_302_exp_03062026(112).xlsx,2021,NICHD,warning,57,Suppressed 'D' in R56 Awards: 57 rows → NaN
+NDB_Report_ID_302_exp_03062026(113).xlsx,2020,NICHD,warning,58,Suppressed 'D' in R56 Awards: 58 rows → NaN
+NDB_Report_ID_302_exp_03062026(114).xlsx,2019,NICHD,warning,56,Suppressed 'D' in R56 Awards: 56 rows → NaN
+NDB_Report_ID_302_exp_03062026(115).xlsx,2018,NICHD,ok,58,
+NDB_Report_ID_302_exp_03062026(116).xlsx,2017,NICHD,ok,59,
+NDB_Report_ID_302_exp_03062026(117).xlsx,2016,NICHD,warning,62,Suppressed 'D' in R56 Awards: 62 rows → NaN
+NDB_Report_ID_302_exp_03062026(118).xlsx,2015,NICHD,warning,58,Suppressed 'D' in R56 Awards: 58 rows → NaN
+NDB_Report_ID_302_exp_03062026(119).xlsx,2014,NICHD,warning,63,Suppressed 'D' in R56 Awards: 63 rows → NaN
+NDB_Report_ID_302_exp_03062026(12).xlsx,2025,NCI,ok,59,
+NDB_Report_ID_302_exp_03062026(120).xlsx,2014,NIDA,warning,56,Suppressed 'D' in R56 Awards: 56 rows → NaN
+NDB_Report_ID_302_exp_03062026(121).xlsx,2015,NIDA,warning,58,Suppressed 'D' in R56 Awards: 58 rows → NaN
+NDB_Report_ID_302_exp_03062026(122).xlsx,2016,NIDA,warning,60,Suppressed 'D' in R56 Awards: 60 rows → NaN
+NDB_Report_ID_302_exp_03062026(123).xlsx,2017,NIDA,warning,57,Suppressed 'D' in R56 Awards: 57 rows → NaN
+NDB_Report_ID_302_exp_03062026(124).xlsx,2018,NIDA,warning,56,Suppressed 'D' in R56 Awards: 56 rows → NaN
+NDB_Report_ID_302_exp_03062026(125).xlsx,2019,NIDA,warning,56,Suppressed 'D' in R56 Awards: 56 rows → NaN
+NDB_Report_ID_302_exp_03062026(126).xlsx,2020,NIDA,ok,56,
+NDB_Report_ID_302_exp_03062026(127).xlsx,2021,NIDA,warning,56,Suppressed 'D' in R56 Awards: 56 rows → NaN
+NDB_Report_ID_302_exp_03062026(128).xlsx,2022,NIDA,warning,55,Suppressed 'D' in R56 Awards: 55 rows → NaN
+NDB_Report_ID_302_exp_03062026(129).xlsx,2023,NIDA,ok,57,
+NDB_Report_ID_302_exp_03062026(13).xlsx,2024,NCI,warning,61,Suppressed 'D' in R56 Awards: 61 rows → NaN
+NDB_Report_ID_302_exp_03062026(130).xlsx,2024,NIDA,ok,58,
+NDB_Report_ID_302_exp_03062026(131).xlsx,2025,NIDA,ok,56,
+NDB_Report_ID_302_exp_03062026(132).xlsx,2025,NIDCD,warning,54,Suppressed 'D' in R56 Awards: 54 rows → NaN
+NDB_Report_ID_302_exp_03062026(133).xlsx,2024,NIDCD,warning,57,Suppressed 'D' in R56 Awards: 57 rows → NaN
+NDB_Report_ID_302_exp_03062026(134).xlsx,2023,NIDCD,ok,52,
+NDB_Report_ID_302_exp_03062026(135).xlsx,2022,NIDCD,warning,54,Suppressed 'D' in R56 Awards: 54 rows → NaN
+NDB_Report_ID_302_exp_03062026(136).xlsx,2021,NIDCD,warning,54,Suppressed 'D' in R56 Awards: 54 rows → NaN
+NDB_Report_ID_302_exp_03062026(137).xlsx,2020,NIDCD,warning,56,Suppressed 'D' in R56 Awards: 56 rows → NaN
+NDB_Report_ID_302_exp_03062026(138).xlsx,2019,NIDCD,warning,55,Suppressed 'D' in R56 Awards: 55 rows → NaN
+NDB_Report_ID_302_exp_03062026(139).xlsx,2018,NIDCD,warning,55,Suppressed 'D' in R56 Awards: 55 rows → NaN
+NDB_Report_ID_302_exp_03062026(14).xlsx,2023,NCI,warning,61,Suppressed 'D' in R56 Awards: 61 rows → NaN
+NDB_Report_ID_302_exp_03062026(140).xlsx,2017,NIDCD,ok,53,
+NDB_Report_ID_302_exp_03062026(141).xlsx,2016,NIDCD,warning,55,Suppressed 'D' in R56 Awards: 55 rows → NaN
+NDB_Report_ID_302_exp_03062026(142).xlsx,2015,NIDCD,warning,53,Suppressed 'D' in R56 Awards: 53 rows → NaN
+NDB_Report_ID_302_exp_03062026(143).xlsx,2014,NIDCD,warning,54,Suppressed 'D' in R56 Awards: 54 rows → NaN
+NDB_Report_ID_302_exp_03062026(144).xlsx,2014,NIDCR,warning,54,Suppressed 'D' in R56 Awards: 54 rows → NaN
+NDB_Report_ID_302_exp_03062026(145).xlsx,2015,NIDCR,warning,51,Suppressed 'D' in R56 Awards: 51 rows → NaN
+NDB_Report_ID_302_exp_03062026(146).xlsx,2016,NIDCR,warning,53,Suppressed 'D' in R56 Awards: 53 rows → NaN
+NDB_Report_ID_302_exp_03062026(147).xlsx,2017,NIDCR,ok,53,
+NDB_Report_ID_302_exp_03062026(148).xlsx,2018,NIDCR,warning,55,Suppressed 'D' in R56 Awards: 55 rows → NaN
+NDB_Report_ID_302_exp_03062026(149).xlsx,2019,NIDCR,warning,53,Suppressed 'D' in R56 Awards: 53 rows → NaN
+NDB_Report_ID_302_exp_03062026(15).xlsx,2022,NCI,warning,59,Suppressed 'D' in R56 Awards: 59 rows → NaN
+NDB_Report_ID_302_exp_03062026(150).xlsx,2020,NIDCR,ok,52,
+NDB_Report_ID_302_exp_03062026(151).xlsx,2021,NIDCR,ok,53,
+NDB_Report_ID_302_exp_03062026(152).xlsx,2022,NIDCR,ok,56,
+NDB_Report_ID_302_exp_03062026(153).xlsx,2023,NIDCR,ok,54,
+NDB_Report_ID_302_exp_03062026(154).xlsx,2024,NIDCR,ok,54,
+NDB_Report_ID_302_exp_03062026(155).xlsx,2025,NIDCR,ok,54,
+NDB_Report_ID_302_exp_03062026(156).xlsx,2025,NIDDK,warning,60,Suppressed 'D' in R56 Awards: 60 rows → NaN
+NDB_Report_ID_302_exp_03062026(157).xlsx,2024,NIDDK,ok,59,
+NDB_Report_ID_302_exp_03062026(158).xlsx,2023,NIDDK,ok,57,
+NDB_Report_ID_302_exp_03062026(159).xlsx,2022,NIDDK,ok,60,
+NDB_Report_ID_302_exp_03062026(16).xlsx,2021,NCI,warning,58,Suppressed 'D' in R56 Awards: 58 rows → NaN
+NDB_Report_ID_302_exp_03062026(160).xlsx,2021,NIDDK,ok,59,
+NDB_Report_ID_302_exp_03062026(161).xlsx,2020,NIDDK,ok,55,
+NDB_Report_ID_302_exp_03062026(162).xlsx,2019,NIDDK,ok,58,
+NDB_Report_ID_302_exp_03062026(163).xlsx,2018,NIDDK,ok,61,
+NDB_Report_ID_302_exp_03062026(164).xlsx,2017,NIDDK,ok,60,
+NDB_Report_ID_302_exp_03062026(165).xlsx,2016,NIDDK,ok,60,
+NDB_Report_ID_302_exp_03062026(166).xlsx,2015,NIDDK,ok,57,
+NDB_Report_ID_302_exp_03062026(167).xlsx,2014,NIDDK,ok,64,Dropped 1 row(s) with Percentile=0
+NDB_Report_ID_302_exp_03062026(168).xlsx,2014,NIGMS,ok,61,Dropped 1 row(s) with Percentile=0
+NDB_Report_ID_302_exp_03062026(169).xlsx,2015,NIGMS,ok,62,
+NDB_Report_ID_302_exp_03062026(17).xlsx,2020,NCI,ok,58,
+NDB_Report_ID_302_exp_03062026(170).xlsx,2016,NIGMS,ok,65,
+NDB_Report_ID_302_exp_03062026(171).xlsx,2017,NIGMS,ok,61,
+NDB_Report_ID_302_exp_03062026(172).xlsx,2018,NIGMS,ok,63,
+NDB_Report_ID_302_exp_03062026(173).xlsx,2019,NIGMS,ok,62,
+NDB_Report_ID_302_exp_03062026(174).xlsx,2020,NIGMS,ok,59,
+NDB_Report_ID_302_exp_03062026(175).xlsx,2021,NIGMS,ok,56,
+NDB_Report_ID_302_exp_03062026(176).xlsx,2022,NIGMS,ok,61,
+NDB_Report_ID_302_exp_03062026(177).xlsx,2023,NIGMS,ok,62,
+NDB_Report_ID_302_exp_03062026(178).xlsx,2024,NIGMS,ok,59,
+NDB_Report_ID_302_exp_03062026(179).xlsx,2025,NIGMS,ok,60,
+NDB_Report_ID_302_exp_03062026(18).xlsx,2019,NCI,warning,59,Suppressed 'D' in R56 Awards: 59 rows → NaN
+NDB_Report_ID_302_exp_03062026(180).xlsx,2025,NIMH,warning,57,Suppressed 'D' in R56 Awards: 57 rows → NaN
+NDB_Report_ID_302_exp_03062026(181).xlsx,2024,NIMH,ok,59,
+NDB_Report_ID_302_exp_03062026(182).xlsx,2023,NIMH,ok,59,
+NDB_Report_ID_302_exp_03062026(183).xlsx,2022,NIMH,warning,57,Suppressed 'D' in R56 Awards: 57 rows → NaN
+NDB_Report_ID_302_exp_03062026(184).xlsx,2021,NIMH,ok,56,
+NDB_Report_ID_302_exp_03062026(185).xlsx,2020,NIMH,ok,58,
+NDB_Report_ID_302_exp_03062026(186).xlsx,2019,NIMH,ok,56,
+NDB_Report_ID_302_exp_03062026(187).xlsx,2018,NIMH,ok,54,
+NDB_Report_ID_302_exp_03062026(188).xlsx,2017,NIMH,ok,60,
+NDB_Report_ID_302_exp_03062026(189).xlsx,2016,NIMH,ok,60,
+NDB_Report_ID_302_exp_03062026(19).xlsx,2018,NCI,warning,59,Suppressed 'D' in R56 Awards: 59 rows → NaN
+NDB_Report_ID_302_exp_03062026(190).xlsx,2015,NIMH,warning,58,Suppressed 'D' in R56 Awards: 58 rows → NaN
+NDB_Report_ID_302_exp_03062026(191).xlsx,2014,NIMH,warning,60,Suppressed 'D' in R56 Awards: 60 rows → NaN
+NDB_Report_ID_302_exp_03062026(192).xlsx,2025,NIMHD,ok,53,
+NDB_Report_ID_302_exp_03062026(193).xlsx,2024,NIMHD,ok,56,
+NDB_Report_ID_302_exp_03062026(194).xlsx,2023,NIMHD,ok,54,
+NDB_Report_ID_302_exp_03062026(195).xlsx,2022,NIMHD,ok,53,
+NDB_Report_ID_302_exp_03062026(196).xlsx,2021,NIMHD,ok,55,
+NDB_Report_ID_302_exp_03062026(197).xlsx,2020,NIMHD,ok,48,
+NDB_Report_ID_302_exp_03062026(198).xlsx,2019,NIMHD,warning,56,Suppressed 'D' in R56 Awards: 56 rows → NaN
+NDB_Report_ID_302_exp_03062026(199).xlsx,2018,NIMHD,warning,43,Suppressed 'D' in R56 Awards: 43 rows → NaN
+NDB_Report_ID_302_exp_03062026(2).xlsx,2023,ALL NIH,ok,66,
+NDB_Report_ID_302_exp_03062026(20).xlsx,2017,NCI,warning,62,Suppressed 'D' in R56 Awards: 62 rows → NaN
+NDB_Report_ID_302_exp_03062026(200).xlsx,2017,NIMHD,ok,47,
+NDB_Report_ID_302_exp_03062026(201).xlsx,2016,NIMHD,ok,40,
+NDB_Report_ID_302_exp_03062026(202).xlsx,2025,NINDS,warning,59,Suppressed 'D' in R56 Awards: 59 rows → NaN
+NDB_Report_ID_302_exp_03062026(203).xlsx,2024,NINDS,ok,59,
+NDB_Report_ID_302_exp_03062026(204).xlsx,2023,NINDS,ok,60,
+NDB_Report_ID_302_exp_03062026(205).xlsx,2022,NINDS,ok,59,
+NDB_Report_ID_302_exp_03062026(206).xlsx,2021,NINDS,ok,57,
+NDB_Report_ID_302_exp_03062026(207).xlsx,2020,NINDS,ok,57,
+NDB_Report_ID_302_exp_03062026(208).xlsx,2019,NINDS,ok,58,
+NDB_Report_ID_302_exp_03062026(209).xlsx,2018,NINDS,ok,58,
+NDB_Report_ID_302_exp_03062026(21).xlsx,2016,NCI,warning,62,Suppressed 'D' in R56 Awards: 62 rows → NaN
+NDB_Report_ID_302_exp_03062026(210).xlsx,2017,NINDS,ok,61,
+NDB_Report_ID_302_exp_03062026(211).xlsx,2016,NINDS,ok,61,
+NDB_Report_ID_302_exp_03062026(212).xlsx,2015,NINDS,ok,59,
+NDB_Report_ID_302_exp_03062026(213).xlsx,2014,NINDS,ok,62,
+NDB_Report_ID_302_exp_03062026(214).xlsx,2025,NINR,ok,29,
+NDB_Report_ID_302_exp_03062026(215).xlsx,2024,NINR,ok,34,
+NDB_Report_ID_302_exp_03062026(216).xlsx,2023,NINR,warning,35,Suppressed 'D' in R56 Awards: 35 rows → NaN
+NDB_Report_ID_302_exp_03062026(217).xlsx,2022,NINR,warning,43,Suppressed 'D' in R56 Awards: 43 rows → NaN
+NDB_Report_ID_302_exp_03062026(218).xlsx,2021,NINR,warning,48,Suppressed 'D' in R56 Awards: 48 rows → NaN
+NDB_Report_ID_302_exp_03062026(219).xlsx,2020,NINR,ok,48,
+NDB_Report_ID_302_exp_03062026(22).xlsx,2015,NCI,warning,61,Suppressed 'D' in R56 Awards: 61 rows → NaN
+NDB_Report_ID_302_exp_03062026(220).xlsx,2019,NINR,ok,51,
+NDB_Report_ID_302_exp_03062026(221).xlsx,2018,NINR,ok,50,
+NDB_Report_ID_302_exp_03062026(222).xlsx,2017,NINR,ok,48,
+NDB_Report_ID_302_exp_03062026(223).xlsx,2016,NINR,ok,53,
+NDB_Report_ID_302_exp_03062026(224).xlsx,2015,NINR,ok,49,
+NDB_Report_ID_302_exp_03062026(225).xlsx,2014,NINR,ok,49,
+NDB_Report_ID_302_exp_03062026(226).xlsx,2014,NLM,warning,50,Suppressed 'D' in R56 Awards: 50 rows → NaN
+NDB_Report_ID_302_exp_03062026(227).xlsx,2015,NLM,warning,38,Suppressed 'D' in R56 Awards: 38 rows → NaN
+NDB_Report_ID_302_exp_03062026(228).xlsx,2016,NLM,ok,46,
+NDB_Report_ID_302_exp_03062026(229).xlsx,2017,NLM,warning,44,Suppressed 'D' in R56 Awards: 44 rows → NaN
+NDB_Report_ID_302_exp_03062026(23).xlsx,2014,NCI,ok,61,Dropped 1 row(s) with Percentile=0
+NDB_Report_ID_302_exp_03062026(230).xlsx,2018,NLM,ok,38,
+NDB_Report_ID_302_exp_03062026(231).xlsx,2019,NLM,ok,51,
+NDB_Report_ID_302_exp_03062026(232).xlsx,2020,NLM,warning,35,Suppressed 'D' in R56 Awards: 35 rows → NaN
+NDB_Report_ID_302_exp_03062026(233).xlsx,2021,NLM,ok,41,
+NDB_Report_ID_302_exp_03062026(234).xlsx,2022,NLM,warning,39,Suppressed 'D' in R56 Awards: 39 rows → NaN
+NDB_Report_ID_302_exp_03062026(235).xlsx,2023,NLM,ok,38,
+NDB_Report_ID_302_exp_03062026(236).xlsx,2024,NLM,ok,35,
+NDB_Report_ID_302_exp_03062026(237).xlsx,2025,NLM,warning,38,Suppressed 'D' in R56 Awards: 38 rows → NaN
+NDB_Report_ID_302_exp_03062026(24).xlsx,2025,NEI,warning,54,Suppressed 'D' in R56 Awards: 54 rows → NaN
+NDB_Report_ID_302_exp_03062026(25).xlsx,2024,NEI,warning,55,Suppressed 'D' in R56 Awards: 55 rows → NaN
+NDB_Report_ID_302_exp_03062026(26).xlsx,2023,NEI,warning,55,Suppressed 'D' in R56 Awards: 55 rows → NaN
+NDB_Report_ID_302_exp_03062026(27).xlsx,2022,NEI,warning,57,Suppressed 'D' in R56 Awards: 57 rows → NaN
+NDB_Report_ID_302_exp_03062026(28).xlsx,2021,NEI,ok,58,
+NDB_Report_ID_302_exp_03062026(29).xlsx,2020,NEI,ok,55,
+NDB_Report_ID_302_exp_03062026(3).xlsx,2022,ALL NIH,ok,63,
+NDB_Report_ID_302_exp_03062026(30).xlsx,2019,NEI,ok,55,
+NDB_Report_ID_302_exp_03062026(31).xlsx,2018,NEI,ok,59,
+NDB_Report_ID_302_exp_03062026(32).xlsx,2017,NEI,ok,59,
+NDB_Report_ID_302_exp_03062026(33).xlsx,2016,NEI,ok,56,
+NDB_Report_ID_302_exp_03062026(34).xlsx,2015,NEI,ok,57,
+NDB_Report_ID_302_exp_03062026(35).xlsx,2014,NEI,ok,59,
+NDB_Report_ID_302_exp_03062026(36).xlsx,2025,NHGRI,ok,53,
+NDB_Report_ID_302_exp_03062026(37).xlsx,2024,NHGRI,warning,42,Suppressed 'D' in R56 Awards: 42 rows → NaN
+NDB_Report_ID_302_exp_03062026(38).xlsx,2023,NHGRI,warning,45,Suppressed 'D' in R56 Awards: 45 rows → NaN
+NDB_Report_ID_302_exp_03062026(39).xlsx,2022,NHGRI,warning,46,Suppressed 'D' in R56 Awards: 46 rows → NaN
+NDB_Report_ID_302_exp_03062026(4).xlsx,2021,ALL NIH,ok,61,
+NDB_Report_ID_302_exp_03062026(40).xlsx,2021,NHGRI,warning,46,Suppressed 'D' in R56 Awards: 46 rows → NaN
+NDB_Report_ID_302_exp_03062026(41).xlsx,2020,NHGRI,warning,49,Suppressed 'D' in R56 Awards: 49 rows → NaN
+NDB_Report_ID_302_exp_03062026(42).xlsx,2019,NHGRI,ok,44,
+NDB_Report_ID_302_exp_03062026(43).xlsx,2018,NHGRI,warning,39,Suppressed 'D' in R56 Awards: 39 rows → NaN
+NDB_Report_ID_302_exp_03062026(44).xlsx,2017,NHGRI,warning,45,Suppressed 'D' in R56 Awards: 45 rows → NaN
+NDB_Report_ID_302_exp_03062026(45).xlsx,2016,NHGRI,ok,35,
+NDB_Report_ID_302_exp_03062026(46).xlsx,2015,NHGRI,ok,38,
+NDB_Report_ID_302_exp_03062026(47).xlsx,2014,NHGRI,ok,39,
+NDB_Report_ID_302_exp_03062026(48).xlsx,2014,NHLBI,ok,61,Dropped 1 row(s) with Percentile=0
+NDB_Report_ID_302_exp_03062026(49).xlsx,2015,NHLBI,ok,59,
+NDB_Report_ID_302_exp_03062026(5).xlsx,2020,ALL NIH,ok,62,
+NDB_Report_ID_302_exp_03062026(50).xlsx,2016,NHLBI,ok,58,
+NDB_Report_ID_302_exp_03062026(51).xlsx,2017,NHLBI,ok,58,
+NDB_Report_ID_302_exp_03062026(52).xlsx,2018,NHLBI,ok,62,
+NDB_Report_ID_302_exp_03062026(53).xlsx,2019,NHLBI,ok,58,
+NDB_Report_ID_302_exp_03062026(54).xlsx,2020,NHLBI,ok,58,
+NDB_Report_ID_302_exp_03062026(55).xlsx,2021,NHLBI,ok,58,
+NDB_Report_ID_302_exp_03062026(56).xlsx,2022,NHLBI,ok,59,
+NDB_Report_ID_302_exp_03062026(57).xlsx,2023,NHLBI,ok,58,
+NDB_Report_ID_302_exp_03062026(58).xlsx,2024,NHLBI,ok,57,
+NDB_Report_ID_302_exp_03062026(59).xlsx,2025,NHLBI,warning,58,Suppressed 'D' in R56 Awards: 58 rows → NaN
+NDB_Report_ID_302_exp_03062026(6).xlsx,2019,ALL NIH,ok,63,
+NDB_Report_ID_302_exp_03062026(60).xlsx,2025,NIA,warning,58,Suppressed 'D' in R56 Awards: 58 rows → NaN
+NDB_Report_ID_302_exp_03062026(61).xlsx,2024,NIA,ok,57,
+NDB_Report_ID_302_exp_03062026(62).xlsx,2023,NIA,ok,59,
+NDB_Report_ID_302_exp_03062026(63).xlsx,2022,NIA,ok,60,
+NDB_Report_ID_302_exp_03062026(64).xlsx,2021,NIA,ok,58,
+NDB_Report_ID_302_exp_03062026(65).xlsx,2020,NIA,ok,58,
+NDB_Report_ID_302_exp_03062026(66).xlsx,2019,NIA,ok,58,
+NDB_Report_ID_302_exp_03062026(67).xlsx,2018,NIA,ok,57,
+NDB_Report_ID_302_exp_03062026(68).xlsx,2017,NIA,ok,57,
+NDB_Report_ID_302_exp_03062026(69).xlsx,2016,NIA,ok,59,
+NDB_Report_ID_302_exp_03062026(7).xlsx,2018,ALL NIH,ok,67,
+NDB_Report_ID_302_exp_03062026(70).xlsx,2015,NIA,ok,57,
+NDB_Report_ID_302_exp_03062026(71).xlsx,2014,NIA,warning,62,Suppressed 'D' in R56 Awards: 62 rows → NaN
+NDB_Report_ID_302_exp_03062026(72).xlsx,2014,NIAAA,ok,53,
+NDB_Report_ID_302_exp_03062026(73).xlsx,2015,NIAAA,ok,57,
+NDB_Report_ID_302_exp_03062026(74).xlsx,2016,NIAAA,warning,56,Suppressed 'D' in R56 Awards: 56 rows → NaN
+NDB_Report_ID_302_exp_03062026(75).xlsx,2017,NIAAA,ok,55,
+NDB_Report_ID_302_exp_03062026(76).xlsx,2018,NIAAA,warning,52,Suppressed 'D' in R56 Awards: 52 rows → NaN
+NDB_Report_ID_302_exp_03062026(77).xlsx,2019,NIAAA,ok,52,
+NDB_Report_ID_302_exp_03062026(78).xlsx,2020,NIAAA,warning,53,Suppressed 'D' in R56 Awards: 53 rows → NaN
+NDB_Report_ID_302_exp_03062026(79).xlsx,2021,NIAAA,ok,54,
+NDB_Report_ID_302_exp_03062026(8).xlsx,2017,ALL NIH,ok,82,
+NDB_Report_ID_302_exp_03062026(80).xlsx,2022,NIAAA,ok,56,
+NDB_Report_ID_302_exp_03062026(81).xlsx,2023,NIAAA,ok,53,
+NDB_Report_ID_302_exp_03062026(82).xlsx,2024,NIAAA,warning,54,Suppressed 'D' in R56 Awards: 54 rows → NaN
+NDB_Report_ID_302_exp_03062026(83).xlsx,2025,NIAAA,ok,52,
+NDB_Report_ID_302_exp_03062026(84).xlsx,2025,NIAID,ok,65,
+NDB_Report_ID_302_exp_03062026(85).xlsx,2024,NIAID,ok,65,
+NDB_Report_ID_302_exp_03062026(86).xlsx,2023,NIAID,ok,64,
+NDB_Report_ID_302_exp_03062026(87).xlsx,2022,NIAID,ok,58,
+NDB_Report_ID_302_exp_03062026(88).xlsx,2021,NIAID,ok,58,
+NDB_Report_ID_302_exp_03062026(89).xlsx,2020,NIAID,ok,59,
+NDB_Report_ID_302_exp_03062026(9).xlsx,2016,ALL NIH,ok,82,
+NDB_Report_ID_302_exp_03062026(90).xlsx,2019,NIAID,ok,62,
+NDB_Report_ID_302_exp_03062026(91).xlsx,2018,NIAID,ok,64,
+NDB_Report_ID_302_exp_03062026(92).xlsx,2017,NIAID,ok,62,
+NDB_Report_ID_302_exp_03062026(93).xlsx,2016,NIAID,ok,66,
+NDB_Report_ID_302_exp_03062026(94).xlsx,2015,NIAID,ok,59,
+NDB_Report_ID_302_exp_03062026(95).xlsx,2014,NIAID,ok,62,Dropped 1 row(s) with Percentile=0
+NDB_Report_ID_302_exp_03062026(96).xlsx,2014,NIAMS,warning,57,Suppressed 'D' in R56 Awards: 58 rows → NaN; Dropped 1 row(s) with Percentile=0
+NDB_Report_ID_302_exp_03062026(97).xlsx,2015,NIAMS,warning,56,Suppressed 'D' in R56 Awards: 56 rows → NaN
+NDB_Report_ID_302_exp_03062026(98).xlsx,2016,NIAMS,ok,58,
+NDB_Report_ID_302_exp_03062026(99).xlsx,2017,NIAMS,warning,56,Suppressed 'D' in R56 Awards: 56 rows → NaN
+NDB_Report_ID_302_exp_03062026.xlsx,2025,ALL NIH,ok,65,

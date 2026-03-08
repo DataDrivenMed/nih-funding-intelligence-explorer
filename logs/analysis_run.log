@@ -1,0 +1,33 @@
+08:57:56  INFO      =================================================================
+08:57:56  INFO      NIH Funding Explorer — Analysis Pipeline
+08:57:56  INFO      =================================================================
+08:57:56  INFO      Loading: C:\Users\rparag\NIH-Funding-Explorer\processed\nih_master_cleaned_data.csv
+08:57:56  INFO      Loaded 13,294 rows | 12 years | 20 institutes
+08:57:56  INFO      -----------------------------------------------------------------
+08:57:56  INFO      ANALYSIS 1: Fitting weighted binomial GLM per Year×Institute …
+08:57:56  DEBUG       WARN  2014 NINR        : Too few transition-zone points: 1 (need 3)
+08:57:56  DEBUG       WARN  2014 NLM         : Too few transition-zone points: 2 (need 3)
+08:57:56  DEBUG       WARN  2015 NHGRI       : Too few transition-zone points: 1 (need 3)
+08:57:56  DEBUG       WARN  2016 NHGRI       : Too few transition-zone points: 1 (need 3)
+08:57:56  DEBUG       WARN  2016 NLM         : Too few transition-zone points: 1 (need 3)
+08:57:56  DEBUG       WARN  2017 NHGRI       : Too few transition-zone points: 0 (need 3)
+08:57:56  DEBUG       WARN  2018 NLM         : Too few transition-zone points: 2 (need 3)
+08:57:56  DEBUG       WARN  2021 NHGRI       : Too few transition-zone points: 1 (need 3)
+08:57:56  INFO        GLM fits: 230 converged | 8 warnings | 2 skipped
+08:57:56  INFO        EEP50 computed for 230 / 238 combos
+08:57:56  INFO        Saved → C:\Users\rparag\NIH-Funding-Explorer\outputs\nih_effective_paylines.csv
+08:57:56  INFO      -----------------------------------------------------------------
+08:57:56  INFO      ANALYSIS 2: Percentile band competitiveness …
+08:57:58  INFO        Saved → C:\Users\rparag\NIH-Funding-Explorer\outputs\nih_percentile_band_summary.csv  (1,428 rows)
+08:57:58  INFO      -----------------------------------------------------------------
+08:57:58  INFO      ANALYSIS 3: Resubmission opportunity …
+08:57:58  INFO        Saved → C:\Users\rparag\NIH-Funding-Explorer\outputs\nih_resubmission_opportunity_by_institute.csv  (920 rows)
+08:57:58  INFO      -----------------------------------------------------------------
+08:57:58  INFO      ANALYSIS 4: Building institute summary …
+08:58:01  INFO        Saved → C:\Users\rparag\NIH-Funding-Explorer\outputs\nih_institute_summary.csv  (238 rows)
+08:58:01  INFO      -----------------------------------------------------------------
+08:58:01  INFO      ANALYSIS 5: Generating leadership insights …
+08:58:01  INFO        Saved → C:\Users\rparag\NIH-Funding-Explorer\outputs\leadership_insights.md
+08:58:01  INFO      =================================================================
+08:58:01  INFO      Analysis pipeline complete.
+08:58:01  INFO      =================================================================

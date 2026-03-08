@@ -1,0 +1,23 @@
+# ── Node / web ──────────────────────────────────────────────────────────────
+web/node_modules/
+web/dist/
+
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.env
+
+# ── Raw source data (large Excel files) ─────────────────────────────────────
+data/raw/
+*.xlsx
+*.xls
+
+# ── OS / editor ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

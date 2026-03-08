@@ -1,0 +1,281 @@
+08:47:48  INFO      ============================================================
+08:47:48  INFO      NIH Funding Explorer — Cleaning Pipeline
+08:47:48  INFO      ============================================================
+08:47:48  INFO      Found 238 xlsx files in archive
+08:47:48  DEBUG     [001/238] ok     NDB_Report_ID_302_exp_03062026(1).xlsx (2024, ALL NIH) → 66 rows
+08:47:48  DEBUG     [002/238] ok     NDB_Report_ID_302_exp_03062026(10).xlsx (2015, ALL NIH) → 76 rows
+08:47:48  WARNING   [003/238] WARN   NDB_Report_ID_302_exp_03062026(100).xlsx (2018, NIAMS): ["Suppressed 'D' in R56 Awards: 56 rows → NaN"]
+08:47:48  DEBUG     [004/238] ok     NDB_Report_ID_302_exp_03062026(101).xlsx (2019, NIAMS) → 57 rows
+08:47:48  DEBUG     [005/238] ok     NDB_Report_ID_302_exp_03062026(102).xlsx (2020, NIAMS) → 58 rows
+08:47:48  WARNING   [006/238] WARN   NDB_Report_ID_302_exp_03062026(103).xlsx (2021, NIAMS): ["Suppressed 'D' in R56 Awards: 55 rows → NaN"]
+08:47:48  DEBUG     [007/238] ok     NDB_Report_ID_302_exp_03062026(104).xlsx (2022, NIAMS) → 59 rows
+08:47:48  WARNING   [008/238] WARN   NDB_Report_ID_302_exp_03062026(105).xlsx (2023, NIAMS): ["Suppressed 'D' in R56 Awards: 57 rows → NaN"]
+08:47:48  WARNING   [009/238] WARN   NDB_Report_ID_302_exp_03062026(106).xlsx (2024, NIAMS): ["Suppressed 'D' in R56 Awards: 57 rows → NaN"]
+08:47:48  WARNING   [010/238] WARN   NDB_Report_ID_302_exp_03062026(107).xlsx (2025, NIAMS): ["Suppressed 'D' in R56 Awards: 57 rows → NaN"]
+08:47:48  DEBUG     [011/238] ok     NDB_Report_ID_302_exp_03062026(108).xlsx (2025, NICHD) → 58 rows
+08:47:48  WARNING   [012/238] WARN   NDB_Report_ID_302_exp_03062026(109).xlsx (2024, NICHD): ["Suppressed 'D' in R56 Awards: 57 rows → NaN"]
+08:47:48  DEBUG     [013/238] ok     NDB_Report_ID_302_exp_03062026(11).xlsx (2014, ALL NIH) → 85 rows
+08:47:48  WARNING   [014/238] WARN   NDB_Report_ID_302_exp_03062026(110).xlsx (2023, NICHD): ["Suppressed 'D' in R56 Awards: 59 rows → NaN"]
+08:47:48  WARNING   [015/238] WARN   NDB_Report_ID_302_exp_03062026(111).xlsx (2022, NICHD): ["Suppressed 'D' in R56 Awards: 58 rows → NaN"]
+08:47:48  WARNING   [016/238] WARN   NDB_Report_ID_302_exp_03062026(112).xlsx (2021, NICHD): ["Suppressed 'D' in R56 Awards: 57 rows → NaN"]
+08:47:48  WARNING   [017/238] WARN   NDB_Report_ID_302_exp_03062026(113).xlsx (2020, NICHD): ["Suppressed 'D' in R56 Awards: 58 rows → NaN"]
+08:47:48  WARNING   [018/238] WARN   NDB_Report_ID_302_exp_03062026(114).xlsx (2019, NICHD): ["Suppressed 'D' in R56 Awards: 56 rows → NaN"]
+08:47:48  DEBUG     [019/238] ok     NDB_Report_ID_302_exp_03062026(115).xlsx (2018, NICHD) → 58 rows
+08:47:48  DEBUG     [020/238] ok     NDB_Report_ID_302_exp_03062026(116).xlsx (2017, NICHD) → 59 rows
+08:47:48  WARNING   [021/238] WARN   NDB_Report_ID_302_exp_03062026(117).xlsx (2016, NICHD): ["Suppressed 'D' in R56 Awards: 62 rows → NaN"]
+08:47:48  WARNING   [022/238] WARN   NDB_Report_ID_302_exp_03062026(118).xlsx (2015, NICHD): ["Suppressed 'D' in R56 Awards: 58 rows → NaN"]
+08:47:48  WARNING   [023/238] WARN   NDB_Report_ID_302_exp_03062026(119).xlsx (2014, NICHD): ["Suppressed 'D' in R56 Awards: 63 rows → NaN"]
+08:47:48  DEBUG     [024/238] ok     NDB_Report_ID_302_exp_03062026(12).xlsx (2025, NCI) → 59 rows
+08:47:48  WARNING   [025/238] WARN   NDB_Report_ID_302_exp_03062026(120).xlsx (2014, NIDA): ["Suppressed 'D' in R56 Awards: 56 rows → NaN"]
+08:47:48  WARNING   [026/238] WARN   NDB_Report_ID_302_exp_03062026(121).xlsx (2015, NIDA): ["Suppressed 'D' in R56 Awards: 58 rows → NaN"]
+08:47:48  WARNING   [027/238] WARN   NDB_Report_ID_302_exp_03062026(122).xlsx (2016, NIDA): ["Suppressed 'D' in R56 Awards: 60 rows → NaN"]
+08:47:48  WARNING   [028/238] WARN   NDB_Report_ID_302_exp_03062026(123).xlsx (2017, NIDA): ["Suppressed 'D' in R56 Awards: 57 rows → NaN"]
+08:47:48  WARNING   [029/238] WARN   NDB_Report_ID_302_exp_03062026(124).xlsx (2018, NIDA): ["Suppressed 'D' in R56 Awards: 56 rows → NaN"]
+08:47:48  WARNING   [030/238] WARN   NDB_Report_ID_302_exp_03062026(125).xlsx (2019, NIDA): ["Suppressed 'D' in R56 Awards: 56 rows → NaN"]
+08:47:48  DEBUG     [031/238] ok     NDB_Report_ID_302_exp_03062026(126).xlsx (2020, NIDA) → 56 rows
+08:47:48  WARNING   [032/238] WARN   NDB_Report_ID_302_exp_03062026(127).xlsx (2021, NIDA): ["Suppressed 'D' in R56 Awards: 56 rows → NaN"]
+08:47:48  WARNING   [033/238] WARN   NDB_Report_ID_302_exp_03062026(128).xlsx (2022, NIDA): ["Suppressed 'D' in R56 Awards: 55 rows → NaN"]
+08:47:48  DEBUG     [034/238] ok     NDB_Report_ID_302_exp_03062026(129).xlsx (2023, NIDA) → 57 rows
+08:47:48  WARNING   [035/238] WARN   NDB_Report_ID_302_exp_03062026(13).xlsx (2024, NCI): ["Suppressed 'D' in R56 Awards: 61 rows → NaN"]
+08:47:48  DEBUG     [036/238] ok     NDB_Report_ID_302_exp_03062026(130).xlsx (2024, NIDA) → 58 rows
+08:47:48  DEBUG     [037/238] ok     NDB_Report_ID_302_exp_03062026(131).xlsx (2025, NIDA) → 56 rows
+08:47:48  WARNING   [038/238] WARN   NDB_Report_ID_302_exp_03062026(132).xlsx (2025, NIDCD): ["Suppressed 'D' in R56 Awards: 54 rows → NaN"]
+08:47:48  WARNING   [039/238] WARN   NDB_Report_ID_302_exp_03062026(133).xlsx (2024, NIDCD): ["Suppressed 'D' in R56 Awards: 57 rows → NaN"]
+08:47:48  DEBUG     [040/238] ok     NDB_Report_ID_302_exp_03062026(134).xlsx (2023, NIDCD) → 52 rows
+08:47:48  WARNING   [041/238] WARN   NDB_Report_ID_302_exp_03062026(135).xlsx (2022, NIDCD): ["Suppressed 'D' in R56 Awards: 54 rows → NaN"]
+08:47:48  WARNING   [042/238] WARN   NDB_Report_ID_302_exp_03062026(136).xlsx (2021, NIDCD): ["Suppressed 'D' in R56 Awards: 54 rows → NaN"]
+08:47:48  WARNING   [043/238] WARN   NDB_Report_ID_302_exp_03062026(137).xlsx (2020, NIDCD): ["Suppressed 'D' in R56 Awards: 56 rows → NaN"]
+08:47:48  WARNING   [044/238] WARN   NDB_Report_ID_302_exp_03062026(138).xlsx (2019, NIDCD): ["Suppressed 'D' in R56 Awards: 55 rows → NaN"]
+08:47:48  WARNING   [045/238] WARN   NDB_Report_ID_302_exp_03062026(139).xlsx (2018, NIDCD): ["Suppressed 'D' in R56 Awards: 55 rows → NaN"]
+08:47:48  WARNING   [046/238] WARN   NDB_Report_ID_302_exp_03062026(14).xlsx (2023, NCI): ["Suppressed 'D' in R56 Awards: 61 rows → NaN"]
+08:47:48  DEBUG     [047/238] ok     NDB_Report_ID_302_exp_03062026(140).xlsx (2017, NIDCD) → 53 rows
+08:47:48  WARNING   [048/238] WARN   NDB_Report_ID_302_exp_03062026(141).xlsx (2016, NIDCD): ["Suppressed 'D' in R56 Awards: 55 rows → NaN"]
+08:47:48  WARNING   [049/238] WARN   NDB_Report_ID_302_exp_03062026(142).xlsx (2015, NIDCD): ["Suppressed 'D' in R56 Awards: 53 rows → NaN"]
+08:47:48  WARNING   [050/238] WARN   NDB_Report_ID_302_exp_03062026(143).xlsx (2014, NIDCD): ["Suppressed 'D' in R56 Awards: 54 rows → NaN"]
+08:47:48  WARNING   [051/238] WARN   NDB_Report_ID_302_exp_03062026(144).xlsx (2014, NIDCR): ["Suppressed 'D' in R56 Awards: 54 rows → NaN"]
+08:47:48  WARNING   [052/238] WARN   NDB_Report_ID_302_exp_03062026(145).xlsx (2015, NIDCR): ["Suppressed 'D' in R56 Awards: 51 rows → NaN"]
+08:47:48  WARNING   [053/238] WARN   NDB_Report_ID_302_exp_03062026(146).xlsx (2016, NIDCR): ["Suppressed 'D' in R56 Awards: 53 rows → NaN"]
+08:47:48  DEBUG     [054/238] ok     NDB_Report_ID_302_exp_03062026(147).xlsx (2017, NIDCR) → 53 rows
+08:47:48  WARNING   [055/238] WARN   NDB_Report_ID_302_exp_03062026(148).xlsx (2018, NIDCR): ["Suppressed 'D' in R56 Awards: 55 rows → NaN"]
+08:47:48  WARNING   [056/238] WARN   NDB_Report_ID_302_exp_03062026(149).xlsx (2019, NIDCR): ["Suppressed 'D' in R56 Awards: 53 rows → NaN"]
+08:47:48  WARNING   [057/238] WARN   NDB_Report_ID_302_exp_03062026(15).xlsx (2022, NCI): ["Suppressed 'D' in R56 Awards: 59 rows → NaN"]
+08:47:49  DEBUG     [058/238] ok     NDB_Report_ID_302_exp_03062026(150).xlsx (2020, NIDCR) → 52 rows
+08:47:49  DEBUG     [059/238] ok     NDB_Report_ID_302_exp_03062026(151).xlsx (2021, NIDCR) → 53 rows
+08:47:49  DEBUG     [060/238] ok     NDB_Report_ID_302_exp_03062026(152).xlsx (2022, NIDCR) → 56 rows
+08:47:49  DEBUG     [061/238] ok     NDB_Report_ID_302_exp_03062026(153).xlsx (2023, NIDCR) → 54 rows
+08:47:49  DEBUG     [062/238] ok     NDB_Report_ID_302_exp_03062026(154).xlsx (2024, NIDCR) → 54 rows
+08:47:49  DEBUG     [063/238] ok     NDB_Report_ID_302_exp_03062026(155).xlsx (2025, NIDCR) → 54 rows
+08:47:49  WARNING   [064/238] WARN   NDB_Report_ID_302_exp_03062026(156).xlsx (2025, NIDDK): ["Suppressed 'D' in R56 Awards: 60 rows → NaN"]
+08:47:49  DEBUG     [065/238] ok     NDB_Report_ID_302_exp_03062026(157).xlsx (2024, NIDDK) → 59 rows
+08:47:49  DEBUG     [066/238] ok     NDB_Report_ID_302_exp_03062026(158).xlsx (2023, NIDDK) → 57 rows
+08:47:49  DEBUG     [067/238] ok     NDB_Report_ID_302_exp_03062026(159).xlsx (2022, NIDDK) → 60 rows
+08:47:49  WARNING   [068/238] WARN   NDB_Report_ID_302_exp_03062026(16).xlsx (2021, NCI): ["Suppressed 'D' in R56 Awards: 58 rows → NaN"]
+08:47:49  DEBUG     [069/238] ok     NDB_Report_ID_302_exp_03062026(160).xlsx (2021, NIDDK) → 59 rows
+08:47:49  DEBUG     [070/238] ok     NDB_Report_ID_302_exp_03062026(161).xlsx (2020, NIDDK) → 55 rows
+08:47:49  DEBUG     [071/238] ok     NDB_Report_ID_302_exp_03062026(162).xlsx (2019, NIDDK) → 58 rows
+08:47:49  DEBUG     [072/238] ok     NDB_Report_ID_302_exp_03062026(163).xlsx (2018, NIDDK) → 61 rows
+08:47:49  DEBUG     [073/238] ok     NDB_Report_ID_302_exp_03062026(164).xlsx (2017, NIDDK) → 60 rows
+08:47:49  DEBUG     [074/238] ok     NDB_Report_ID_302_exp_03062026(165).xlsx (2016, NIDDK) → 60 rows
+08:47:49  DEBUG     [075/238] ok     NDB_Report_ID_302_exp_03062026(166).xlsx (2015, NIDDK) → 57 rows
+08:47:49  DEBUG     [076/238] ok     NDB_Report_ID_302_exp_03062026(167).xlsx (2014, NIDDK) → 64 rows
+08:47:49  DEBUG     [077/238] ok     NDB_Report_ID_302_exp_03062026(168).xlsx (2014, NIGMS) → 61 rows
+08:47:49  DEBUG     [078/238] ok     NDB_Report_ID_302_exp_03062026(169).xlsx (2015, NIGMS) → 62 rows
+08:47:49  DEBUG     [079/238] ok     NDB_Report_ID_302_exp_03062026(17).xlsx (2020, NCI) → 58 rows
+08:47:49  DEBUG     [080/238] ok     NDB_Report_ID_302_exp_03062026(170).xlsx (2016, NIGMS) → 65 rows
+08:47:49  DEBUG     [081/238] ok     NDB_Report_ID_302_exp_03062026(171).xlsx (2017, NIGMS) → 61 rows
+08:47:49  DEBUG     [082/238] ok     NDB_Report_ID_302_exp_03062026(172).xlsx (2018, NIGMS) → 63 rows
+08:47:49  DEBUG     [083/238] ok     NDB_Report_ID_302_exp_03062026(173).xlsx (2019, NIGMS) → 62 rows
+08:47:49  DEBUG     [084/238] ok     NDB_Report_ID_302_exp_03062026(174).xlsx (2020, NIGMS) → 59 rows
+08:47:49  DEBUG     [085/238] ok     NDB_Report_ID_302_exp_03062026(175).xlsx (2021, NIGMS) → 56 rows
+08:47:49  DEBUG     [086/238] ok     NDB_Report_ID_302_exp_03062026(176).xlsx (2022, NIGMS) → 61 rows
+08:47:49  DEBUG     [087/238] ok     NDB_Report_ID_302_exp_03062026(177).xlsx (2023, NIGMS) → 62 rows
+08:47:49  DEBUG     [088/238] ok     NDB_Report_ID_302_exp_03062026(178).xlsx (2024, NIGMS) → 59 rows
+08:47:49  DEBUG     [089/238] ok     NDB_Report_ID_302_exp_03062026(179).xlsx (2025, NIGMS) → 60 rows
+08:47:49  WARNING   [090/238] WARN   NDB_Report_ID_302_exp_03062026(18).xlsx (2019, NCI): ["Suppressed 'D' in R56 Awards: 59 rows → NaN"]
+08:47:49  WARNING   [091/238] WARN   NDB_Report_ID_302_exp_03062026(180).xlsx (2025, NIMH): ["Suppressed 'D' in R56 Awards: 57 rows → NaN"]
+08:47:49  DEBUG     [092/238] ok     NDB_Report_ID_302_exp_03062026(181).xlsx (2024, NIMH) → 59 rows
+08:47:49  DEBUG     [093/238] ok     NDB_Report_ID_302_exp_03062026(182).xlsx (2023, NIMH) → 59 rows
+08:47:49  WARNING   [094/238] WARN   NDB_Report_ID_302_exp_03062026(183).xlsx (2022, NIMH): ["Suppressed 'D' in R56 Awards: 57 rows → NaN"]
+08:47:49  DEBUG     [095/238] ok     NDB_Report_ID_302_exp_03062026(184).xlsx (2021, NIMH) → 56 rows
+08:47:49  DEBUG     [096/238] ok     NDB_Report_ID_302_exp_03062026(185).xlsx (2020, NIMH) → 58 rows
+08:47:49  DEBUG     [097/238] ok     NDB_Report_ID_302_exp_03062026(186).xlsx (2019, NIMH) → 56 rows
+08:47:49  DEBUG     [098/238] ok     NDB_Report_ID_302_exp_03062026(187).xlsx (2018, NIMH) → 54 rows
+08:47:49  DEBUG     [099/238] ok     NDB_Report_ID_302_exp_03062026(188).xlsx (2017, NIMH) → 60 rows
+08:47:49  DEBUG     [100/238] ok     NDB_Report_ID_302_exp_03062026(189).xlsx (2016, NIMH) → 60 rows
+08:47:49  WARNING   [101/238] WARN   NDB_Report_ID_302_exp_03062026(19).xlsx (2018, NCI): ["Suppressed 'D' in R56 Awards: 59 rows → NaN"]
+08:47:49  WARNING   [102/238] WARN   NDB_Report_ID_302_exp_03062026(190).xlsx (2015, NIMH): ["Suppressed 'D' in R56 Awards: 58 rows → NaN"]
+08:47:49  WARNING   [103/238] WARN   NDB_Report_ID_302_exp_03062026(191).xlsx (2014, NIMH): ["Suppressed 'D' in R56 Awards: 60 rows → NaN"]
+08:47:49  DEBUG     [104/238] ok     NDB_Report_ID_302_exp_03062026(192).xlsx (2025, NIMHD) → 53 rows
+08:47:49  DEBUG     [105/238] ok     NDB_Report_ID_302_exp_03062026(193).xlsx (2024, NIMHD) → 56 rows
+08:47:49  DEBUG     [106/238] ok     NDB_Report_ID_302_exp_03062026(194).xlsx (2023, NIMHD) → 54 rows
+08:47:49  DEBUG     [107/238] ok     NDB_Report_ID_302_exp_03062026(195).xlsx (2022, NIMHD) → 53 rows
+08:47:49  DEBUG     [108/238] ok     NDB_Report_ID_302_exp_03062026(196).xlsx (2021, NIMHD) → 55 rows
+08:47:49  DEBUG     [109/238] ok     NDB_Report_ID_302_exp_03062026(197).xlsx (2020, NIMHD) → 48 rows
+08:47:49  WARNING   [110/238] WARN   NDB_Report_ID_302_exp_03062026(198).xlsx (2019, NIMHD): ["Suppressed 'D' in R56 Awards: 56 rows → NaN"]
+08:47:49  WARNING   [111/238] WARN   NDB_Report_ID_302_exp_03062026(199).xlsx (2018, NIMHD): ["Suppressed 'D' in R56 Awards: 43 rows → NaN"]
+08:47:49  DEBUG     [112/238] ok     NDB_Report_ID_302_exp_03062026(2).xlsx (2023, ALL NIH) → 66 rows
+08:47:49  WARNING   [113/238] WARN   NDB_Report_ID_302_exp_03062026(20).xlsx (2017, NCI): ["Suppressed 'D' in R56 Awards: 62 rows → NaN"]
+08:47:49  DEBUG     [114/238] ok     NDB_Report_ID_302_exp_03062026(200).xlsx (2017, NIMHD) → 47 rows
+08:47:49  DEBUG     [115/238] ok     NDB_Report_ID_302_exp_03062026(201).xlsx (2016, NIMHD) → 40 rows
+08:47:49  WARNING   [116/238] WARN   NDB_Report_ID_302_exp_03062026(202).xlsx (2025, NINDS): ["Suppressed 'D' in R56 Awards: 59 rows → NaN"]
+08:47:49  DEBUG     [117/238] ok     NDB_Report_ID_302_exp_03062026(203).xlsx (2024, NINDS) → 59 rows
+08:47:49  DEBUG     [118/238] ok     NDB_Report_ID_302_exp_03062026(204).xlsx (2023, NINDS) → 60 rows
+08:47:49  DEBUG     [119/238] ok     NDB_Report_ID_302_exp_03062026(205).xlsx (2022, NINDS) → 59 rows
+08:47:49  DEBUG     [120/238] ok     NDB_Report_ID_302_exp_03062026(206).xlsx (2021, NINDS) → 57 rows
+08:47:49  DEBUG     [121/238] ok     NDB_Report_ID_302_exp_03062026(207).xlsx (2020, NINDS) → 57 rows
+08:47:49  DEBUG     [122/238] ok     NDB_Report_ID_302_exp_03062026(208).xlsx (2019, NINDS) → 58 rows
+08:47:49  DEBUG     [123/238] ok     NDB_Report_ID_302_exp_03062026(209).xlsx (2018, NINDS) → 58 rows
+08:47:49  WARNING   [124/238] WARN   NDB_Report_ID_302_exp_03062026(21).xlsx (2016, NCI): ["Suppressed 'D' in R56 Awards: 62 rows → NaN"]
+08:47:49  DEBUG     [125/238] ok     NDB_Report_ID_302_exp_03062026(210).xlsx (2017, NINDS) → 61 rows
+08:47:49  DEBUG     [126/238] ok     NDB_Report_ID_302_exp_03062026(211).xlsx (2016, NINDS) → 61 rows
+08:47:49  DEBUG     [127/238] ok     NDB_Report_ID_302_exp_03062026(212).xlsx (2015, NINDS) → 59 rows
+08:47:49  DEBUG     [128/238] ok     NDB_Report_ID_302_exp_03062026(213).xlsx (2014, NINDS) → 62 rows
+08:47:49  DEBUG     [129/238] ok     NDB_Report_ID_302_exp_03062026(214).xlsx (2025, NINR) → 29 rows
+08:47:49  DEBUG     [130/238] ok     NDB_Report_ID_302_exp_03062026(215).xlsx (2024, NINR) → 34 rows
+08:47:49  WARNING   [131/238] WARN   NDB_Report_ID_302_exp_03062026(216).xlsx (2023, NINR): ["Suppressed 'D' in R56 Awards: 35 rows → NaN"]
+08:47:49  WARNING   [132/238] WARN   NDB_Report_ID_302_exp_03062026(217).xlsx (2022, NINR): ["Suppressed 'D' in R56 Awards: 43 rows → NaN"]
+08:47:49  WARNING   [133/238] WARN   NDB_Report_ID_302_exp_03062026(218).xlsx (2021, NINR): ["Suppressed 'D' in R56 Awards: 48 rows → NaN"]
+08:47:49  DEBUG     [134/238] ok     NDB_Report_ID_302_exp_03062026(219).xlsx (2020, NINR) → 48 rows
+08:47:49  WARNING   [135/238] WARN   NDB_Report_ID_302_exp_03062026(22).xlsx (2015, NCI): ["Suppressed 'D' in R56 Awards: 61 rows → NaN"]
+08:47:49  DEBUG     [136/238] ok     NDB_Report_ID_302_exp_03062026(220).xlsx (2019, NINR) → 51 rows
+08:47:49  DEBUG     [137/238] ok     NDB_Report_ID_302_exp_03062026(221).xlsx (2018, NINR) → 50 rows
+08:47:49  DEBUG     [138/238] ok     NDB_Report_ID_302_exp_03062026(222).xlsx (2017, NINR) → 48 rows
+08:47:49  DEBUG     [139/238] ok     NDB_Report_ID_302_exp_03062026(223).xlsx (2016, NINR) → 53 rows
+08:47:49  DEBUG     [140/238] ok     NDB_Report_ID_302_exp_03062026(224).xlsx (2015, NINR) → 49 rows
+08:47:49  DEBUG     [141/238] ok     NDB_Report_ID_302_exp_03062026(225).xlsx (2014, NINR) → 49 rows
+08:47:49  WARNING   [142/238] WARN   NDB_Report_ID_302_exp_03062026(226).xlsx (2014, NLM): ["Suppressed 'D' in R56 Awards: 50 rows → NaN"]
+08:47:49  WARNING   [143/238] WARN   NDB_Report_ID_302_exp_03062026(227).xlsx (2015, NLM): ["Suppressed 'D' in R56 Awards: 38 rows → NaN"]
+08:47:49  DEBUG     [144/238] ok     NDB_Report_ID_302_exp_03062026(228).xlsx (2016, NLM) → 46 rows
+08:47:49  WARNING   [145/238] WARN   NDB_Report_ID_302_exp_03062026(229).xlsx (2017, NLM): ["Suppressed 'D' in R56 Awards: 44 rows → NaN"]
+08:47:49  DEBUG     [146/238] ok     NDB_Report_ID_302_exp_03062026(23).xlsx (2014, NCI) → 61 rows
+08:47:49  DEBUG     [147/238] ok     NDB_Report_ID_302_exp_03062026(230).xlsx (2018, NLM) → 38 rows
+08:47:49  DEBUG     [148/238] ok     NDB_Report_ID_302_exp_03062026(231).xlsx (2019, NLM) → 51 rows
+08:47:49  WARNING   [149/238] WARN   NDB_Report_ID_302_exp_03062026(232).xlsx (2020, NLM): ["Suppressed 'D' in R56 Awards: 35 rows → NaN"]
+08:47:49  DEBUG     [150/238] ok     NDB_Report_ID_302_exp_03062026(233).xlsx (2021, NLM) → 41 rows
+08:47:49  WARNING   [151/238] WARN   NDB_Report_ID_302_exp_03062026(234).xlsx (2022, NLM): ["Suppressed 'D' in R56 Awards: 39 rows → NaN"]
+08:47:49  DEBUG     [152/238] ok     NDB_Report_ID_302_exp_03062026(235).xlsx (2023, NLM) → 38 rows
+08:47:49  DEBUG     [153/238] ok     NDB_Report_ID_302_exp_03062026(236).xlsx (2024, NLM) → 35 rows
+08:47:49  WARNING   [154/238] WARN   NDB_Report_ID_302_exp_03062026(237).xlsx (2025, NLM): ["Suppressed 'D' in R56 Awards: 38 rows → NaN"]
+08:47:49  WARNING   [155/238] WARN   NDB_Report_ID_302_exp_03062026(24).xlsx (2025, NEI): ["Suppressed 'D' in R56 Awards: 54 rows → NaN"]
+08:47:49  WARNING   [156/238] WARN   NDB_Report_ID_302_exp_03062026(25).xlsx (2024, NEI): ["Suppressed 'D' in R56 Awards: 55 rows → NaN"]
+08:47:49  WARNING   [157/238] WARN   NDB_Report_ID_302_exp_03062026(26).xlsx (2023, NEI): ["Suppressed 'D' in R56 Awards: 55 rows → NaN"]
+08:47:49  WARNING   [158/238] WARN   NDB_Report_ID_302_exp_03062026(27).xlsx (2022, NEI): ["Suppressed 'D' in R56 Awards: 57 rows → NaN"]
+08:47:49  DEBUG     [159/238] ok     NDB_Report_ID_302_exp_03062026(28).xlsx (2021, NEI) → 58 rows
+08:47:49  DEBUG     [160/238] ok     NDB_Report_ID_302_exp_03062026(29).xlsx (2020, NEI) → 55 rows
+08:47:49  DEBUG     [161/238] ok     NDB_Report_ID_302_exp_03062026(3).xlsx (2022, ALL NIH) → 63 rows
+08:47:49  DEBUG     [162/238] ok     NDB_Report_ID_302_exp_03062026(30).xlsx (2019, NEI) → 55 rows
+08:47:49  DEBUG     [163/238] ok     NDB_Report_ID_302_exp_03062026(31).xlsx (2018, NEI) → 59 rows
+08:47:49  DEBUG     [164/238] ok     NDB_Report_ID_302_exp_03062026(32).xlsx (2017, NEI) → 59 rows
+08:47:49  DEBUG     [165/238] ok     NDB_Report_ID_302_exp_03062026(33).xlsx (2016, NEI) → 56 rows
+08:47:49  DEBUG     [166/238] ok     NDB_Report_ID_302_exp_03062026(34).xlsx (2015, NEI) → 57 rows
+08:47:49  DEBUG     [167/238] ok     NDB_Report_ID_302_exp_03062026(35).xlsx (2014, NEI) → 59 rows
+08:47:49  DEBUG     [168/238] ok     NDB_Report_ID_302_exp_03062026(36).xlsx (2025, NHGRI) → 53 rows
+08:47:49  WARNING   [169/238] WARN   NDB_Report_ID_302_exp_03062026(37).xlsx (2024, NHGRI): ["Suppressed 'D' in R56 Awards: 42 rows → NaN"]
+08:47:49  WARNING   [170/238] WARN   NDB_Report_ID_302_exp_03062026(38).xlsx (2023, NHGRI): ["Suppressed 'D' in R56 Awards: 45 rows → NaN"]
+08:47:49  WARNING   [171/238] WARN   NDB_Report_ID_302_exp_03062026(39).xlsx (2022, NHGRI): ["Suppressed 'D' in R56 Awards: 46 rows → NaN"]
+08:47:49  DEBUG     [172/238] ok     NDB_Report_ID_302_exp_03062026(4).xlsx (2021, ALL NIH) → 61 rows
+08:47:49  WARNING   [173/238] WARN   NDB_Report_ID_302_exp_03062026(40).xlsx (2021, NHGRI): ["Suppressed 'D' in R56 Awards: 46 rows → NaN"]
+08:47:49  WARNING   [174/238] WARN   NDB_Report_ID_302_exp_03062026(41).xlsx (2020, NHGRI): ["Suppressed 'D' in R56 Awards: 49 rows → NaN"]
+08:47:49  DEBUG     [175/238] ok     NDB_Report_ID_302_exp_03062026(42).xlsx (2019, NHGRI) → 44 rows
+08:47:49  WARNING   [176/238] WARN   NDB_Report_ID_302_exp_03062026(43).xlsx (2018, NHGRI): ["Suppressed 'D' in R56 Awards: 39 rows → NaN"]
+08:47:49  WARNING   [177/238] WARN   NDB_Report_ID_302_exp_03062026(44).xlsx (2017, NHGRI): ["Suppressed 'D' in R56 Awards: 45 rows → NaN"]
+08:47:49  DEBUG     [178/238] ok     NDB_Report_ID_302_exp_03062026(45).xlsx (2016, NHGRI) → 35 rows
+08:47:49  DEBUG     [179/238] ok     NDB_Report_ID_302_exp_03062026(46).xlsx (2015, NHGRI) → 38 rows
+08:47:49  DEBUG     [180/238] ok     NDB_Report_ID_302_exp_03062026(47).xlsx (2014, NHGRI) → 39 rows
+08:47:49  DEBUG     [181/238] ok     NDB_Report_ID_302_exp_03062026(48).xlsx (2014, NHLBI) → 61 rows
+08:47:49  DEBUG     [182/238] ok     NDB_Report_ID_302_exp_03062026(49).xlsx (2015, NHLBI) → 59 rows
+08:47:49  DEBUG     [183/238] ok     NDB_Report_ID_302_exp_03062026(5).xlsx (2020, ALL NIH) → 62 rows
+08:47:49  DEBUG     [184/238] ok     NDB_Report_ID_302_exp_03062026(50).xlsx (2016, NHLBI) → 58 rows
+08:47:49  DEBUG     [185/238] ok     NDB_Report_ID_302_exp_03062026(51).xlsx (2017, NHLBI) → 58 rows
+08:47:49  DEBUG     [186/238] ok     NDB_Report_ID_302_exp_03062026(52).xlsx (2018, NHLBI) → 62 rows
+08:47:49  DEBUG     [187/238] ok     NDB_Report_ID_302_exp_03062026(53).xlsx (2019, NHLBI) → 58 rows
+08:47:49  DEBUG     [188/238] ok     NDB_Report_ID_302_exp_03062026(54).xlsx (2020, NHLBI) → 58 rows
+08:47:50  DEBUG     [189/238] ok     NDB_Report_ID_302_exp_03062026(55).xlsx (2021, NHLBI) → 58 rows
+08:47:50  DEBUG     [190/238] ok     NDB_Report_ID_302_exp_03062026(56).xlsx (2022, NHLBI) → 59 rows
+08:47:50  DEBUG     [191/238] ok     NDB_Report_ID_302_exp_03062026(57).xlsx (2023, NHLBI) → 58 rows
+08:47:50  DEBUG     [192/238] ok     NDB_Report_ID_302_exp_03062026(58).xlsx (2024, NHLBI) → 57 rows
+08:47:50  WARNING   [193/238] WARN   NDB_Report_ID_302_exp_03062026(59).xlsx (2025, NHLBI): ["Suppressed 'D' in R56 Awards: 58 rows → NaN"]
+08:47:50  DEBUG     [194/238] ok     NDB_Report_ID_302_exp_03062026(6).xlsx (2019, ALL NIH) → 63 rows
+08:47:50  WARNING   [195/238] WARN   NDB_Report_ID_302_exp_03062026(60).xlsx (2025, NIA): ["Suppressed 'D' in R56 Awards: 58 rows → NaN"]
+08:47:50  DEBUG     [196/238] ok     NDB_Report_ID_302_exp_03062026(61).xlsx (2024, NIA) → 57 rows
+08:47:50  DEBUG     [197/238] ok     NDB_Report_ID_302_exp_03062026(62).xlsx (2023, NIA) → 59 rows
+08:47:50  DEBUG     [198/238] ok     NDB_Report_ID_302_exp_03062026(63).xlsx (2022, NIA) → 60 rows
+08:47:50  DEBUG     [199/238] ok     NDB_Report_ID_302_exp_03062026(64).xlsx (2021, NIA) → 58 rows
+08:47:50  DEBUG     [200/238] ok     NDB_Report_ID_302_exp_03062026(65).xlsx (2020, NIA) → 58 rows
+08:47:50  DEBUG     [201/238] ok     NDB_Report_ID_302_exp_03062026(66).xlsx (2019, NIA) → 58 rows
+08:47:50  DEBUG     [202/238] ok     NDB_Report_ID_302_exp_03062026(67).xlsx (2018, NIA) → 57 rows
+08:47:50  DEBUG     [203/238] ok     NDB_Report_ID_302_exp_03062026(68).xlsx (2017, NIA) → 57 rows
+08:47:50  DEBUG     [204/238] ok     NDB_Report_ID_302_exp_03062026(69).xlsx (2016, NIA) → 59 rows
+08:47:50  DEBUG     [205/238] ok     NDB_Report_ID_302_exp_03062026(7).xlsx (2018, ALL NIH) → 67 rows
+08:47:50  DEBUG     [206/238] ok     NDB_Report_ID_302_exp_03062026(70).xlsx (2015, NIA) → 57 rows
+08:47:50  WARNING   [207/238] WARN   NDB_Report_ID_302_exp_03062026(71).xlsx (2014, NIA): ["Suppressed 'D' in R56 Awards: 62 rows → NaN"]
+08:47:50  DEBUG     [208/238] ok     NDB_Report_ID_302_exp_03062026(72).xlsx (2014, NIAAA) → 53 rows
+08:47:50  DEBUG     [209/238] ok     NDB_Report_ID_302_exp_03062026(73).xlsx (2015, NIAAA) → 57 rows
+08:47:50  WARNING   [210/238] WARN   NDB_Report_ID_302_exp_03062026(74).xlsx (2016, NIAAA): ["Suppressed 'D' in R56 Awards: 56 rows → NaN"]
+08:47:50  DEBUG     [211/238] ok     NDB_Report_ID_302_exp_03062026(75).xlsx (2017, NIAAA) → 55 rows
+08:47:50  WARNING   [212/238] WARN   NDB_Report_ID_302_exp_03062026(76).xlsx (2018, NIAAA): ["Suppressed 'D' in R56 Awards: 52 rows → NaN"]
+08:47:50  DEBUG     [213/238] ok     NDB_Report_ID_302_exp_03062026(77).xlsx (2019, NIAAA) → 52 rows
+08:47:50  WARNING   [214/238] WARN   NDB_Report_ID_302_exp_03062026(78).xlsx (2020, NIAAA): ["Suppressed 'D' in R56 Awards: 53 rows → NaN"]
+08:47:50  DEBUG     [215/238] ok     NDB_Report_ID_302_exp_03062026(79).xlsx (2021, NIAAA) → 54 rows
+08:47:50  DEBUG     [216/238] ok     NDB_Report_ID_302_exp_03062026(8).xlsx (2017, ALL NIH) → 82 rows
+08:47:50  DEBUG     [217/238] ok     NDB_Report_ID_302_exp_03062026(80).xlsx (2022, NIAAA) → 56 rows
+08:47:50  DEBUG     [218/238] ok     NDB_Report_ID_302_exp_03062026(81).xlsx (2023, NIAAA) → 53 rows
+08:47:50  WARNING   [219/238] WARN   NDB_Report_ID_302_exp_03062026(82).xlsx (2024, NIAAA): ["Suppressed 'D' in R56 Awards: 54 rows → NaN"]
+08:47:50  DEBUG     [220/238] ok     NDB_Report_ID_302_exp_03062026(83).xlsx (2025, NIAAA) → 52 rows
+08:47:50  DEBUG     [221/238] ok     NDB_Report_ID_302_exp_03062026(84).xlsx (2025, NIAID) → 65 rows
+08:47:50  DEBUG     [222/238] ok     NDB_Report_ID_302_exp_03062026(85).xlsx (2024, NIAID) → 65 rows
+08:47:50  DEBUG     [223/238] ok     NDB_Report_ID_302_exp_03062026(86).xlsx (2023, NIAID) → 64 rows
+08:47:50  DEBUG     [224/238] ok     NDB_Report_ID_302_exp_03062026(87).xlsx (2022, NIAID) → 58 rows
+08:47:50  DEBUG     [225/238] ok     NDB_Report_ID_302_exp_03062026(88).xlsx (2021, NIAID) → 58 rows
+08:47:50  DEBUG     [226/238] ok     NDB_Report_ID_302_exp_03062026(89).xlsx (2020, NIAID) → 59 rows
+08:47:50  DEBUG     [227/238] ok     NDB_Report_ID_302_exp_03062026(9).xlsx (2016, ALL NIH) → 82 rows
+08:47:50  DEBUG     [228/238] ok     NDB_Report_ID_302_exp_03062026(90).xlsx (2019, NIAID) → 62 rows
+08:47:50  DEBUG     [229/238] ok     NDB_Report_ID_302_exp_03062026(91).xlsx (2018, NIAID) → 64 rows
+08:47:50  DEBUG     [230/238] ok     NDB_Report_ID_302_exp_03062026(92).xlsx (2017, NIAID) → 62 rows
+08:47:50  DEBUG     [231/238] ok     NDB_Report_ID_302_exp_03062026(93).xlsx (2016, NIAID) → 66 rows
+08:47:50  DEBUG     [232/238] ok     NDB_Report_ID_302_exp_03062026(94).xlsx (2015, NIAID) → 59 rows
+08:47:50  DEBUG     [233/238] ok     NDB_Report_ID_302_exp_03062026(95).xlsx (2014, NIAID) → 62 rows
+08:47:50  WARNING   [234/238] WARN   NDB_Report_ID_302_exp_03062026(96).xlsx (2014, NIAMS): ["Suppressed 'D' in R56 Awards: 58 rows → NaN", 'Dropped 1 row(s) with Percentile=0']
+08:47:50  WARNING   [235/238] WARN   NDB_Report_ID_302_exp_03062026(97).xlsx (2015, NIAMS): ["Suppressed 'D' in R56 Awards: 56 rows → NaN"]
+08:47:50  DEBUG     [236/238] ok     NDB_Report_ID_302_exp_03062026(98).xlsx (2016, NIAMS) → 58 rows
+08:47:50  WARNING   [237/238] WARN   NDB_Report_ID_302_exp_03062026(99).xlsx (2017, NIAMS): ["Suppressed 'D' in R56 Awards: 56 rows → NaN"]
+08:47:50  DEBUG     [238/238] ok     NDB_Report_ID_302_exp_03062026.xlsx (2025, ALL NIH) → 65 rows
+08:47:50  INFO      ------------------------------------------------------------
+08:47:50  INFO      Combining 238 DataFrames …
+08:47:50  INFO      Saved master dataset → C:\Users\rparag\NIH-Funding-Explorer\processed\nih_master_cleaned_data.csv  (13,294 rows)
+08:47:50  INFO      Saved processing log → C:\Users\rparag\NIH-Funding-Explorer\logs\file_processing_log.csv  (238 entries)
+08:47:50  INFO      Saved error log      → C:\Users\rparag\NIH-Funding-Explorer\logs\file_errors.csv  (1 entries)
+08:47:50  INFO      ============================================================
+08:47:50  INFO      SUMMARY
+08:47:50  INFO      ============================================================
+08:47:50  INFO        Files processed:       238
+08:47:50  INFO        Files OK:              154
+08:47:50  INFO        Files with warnings:   84
+08:47:50  INFO        Files with errors:     0
+08:47:50  INFO        Total rows (master):   13,294
+08:47:50  INFO        Years:                 [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025]
+08:47:50  INFO        Institutes:            ['ALL NIH', 'NCI', 'NEI', 'NHGRI', 'NHLBI', 'NIA', 'NIAAA', 'NIAID', 'NIAMS', 'NICHD', 'NIDA', 'NIDCD', 'NIDCR', 'NIDDK', 'NIGMS', 'NIMH', 'NIMHD', 'NINDS', 'NINR', 'NLM']
+08:47:50  INFO        Percentile range:      1 – 100
+08:47:50  INFO        R56 suppressed rows:   4,534
+08:47:50  INFO        Rows with NaN R56:     4,534
+08:47:50  INFO        Rows zero FundedTotal: 6,571
+08:47:50  INFO        Funding_Rate range:    0.0000 – 1.0000
+08:47:50  INFO      
+08:47:50  INFO        Rows per Year:
+08:47:50  INFO          2014: 1,112
+08:47:50  INFO          2015: 1,063
+08:47:50  INFO          2016: 1,147
+08:47:50  INFO          2017: 1,139
+08:47:50  INFO          2018: 1,106
+08:47:50  INFO          2019: 1,120
+08:47:50  INFO          2020: 1,092
+08:47:50  INFO          2021: 1,098
+08:47:50  INFO          2022: 1,112
+08:47:50  INFO          2023: 1,105
+08:47:50  INFO          2024: 1,101
+08:47:50  INFO          2025: 1,099
+08:47:50  INFO      
+08:47:50  INFO        Rows per Institute (ALL NIH only check):
+08:47:50  INFO          ALL NIH: 838 rows across 12 years
+08:47:50  INFO      ============================================================
+08:47:50  INFO      Cleaning pipeline complete.

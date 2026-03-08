@@ -1,0 +1,2 @@
+file,year,institute,status,rows,notes
+NDB_Report_ID_302_exp_03062026(96).xlsx,2014,NIAMS,warning,57,Suppressed 'D' in R56 Awards: 58 rows → NaN; Dropped 1 row(s) with Percentile=0

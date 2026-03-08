@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+  }
+}
+
+@layer components {
+  .section-card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6;
+  }
+  .kpi-card {
+    @apply bg-white rounded-lg border border-gray-200 p-4 shadow-sm;
+  }
+  .alert-badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800;
+  }
+  .insight-box {
+    @apply bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg text-sm text-blue-900;
+  }
+  .interpretation-box {
+    @apply bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg text-sm text-amber-900;
+  }
+  .caution-box {
+    @apply bg-orange-50 border-l-4 border-orange-400 p-4 rounded-r-lg text-sm text-orange-900;
+  }
+}
